@@ -129,15 +129,7 @@ namespace NCAP.Views.Dashboard
             }
         }
 
-        //private void OnChatTapped(object sender, EventArgs e)
-        //{
-        //    ChatModal.IsVisible = true;
-        //}
 
-        private void OnCloseChat(object sender, EventArgs e)
-        {
-            ChatModal.IsVisible = false;
-        }
 
 
         private void HandleSubjectTap(string subject)
@@ -408,10 +400,14 @@ namespace NCAP.Views.Dashboard
         private async void OnExploreStudy(object sender, EventArgs e)
             => await Shell.Current.GoToAsync("//StudyPage");
 
-        private async void OnChatTapped(object sender, EventArgs e)
+        private void OnChatTapped(object sender, EventArgs e)
         {
-            await DisplayAlert("💬 Khetha Career Support",
-                "Speak to a career advisor:\n\n📞 086 999 0123\n💬 WhatsApp: 072 204 5056\n✉️ careerhelp@dhet.gov.za\n\nMon–Fri · 08:00–16:30", "OK");
+            ChatModal.IsVisible = true;
+        }
+
+        private void OnCloseChat(object sender, EventArgs e)
+        {
+            ChatModal.IsVisible = false;
         }
     }
 }

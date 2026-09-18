@@ -645,12 +645,13 @@
                     <!-- WebView -->
                     <WebView Grid.Row="1"
                      x:Name="ChatWebView"
-                     Source="https://tawk.to/chat/6aada9ef44c40a343ef893c2/1k2r5vkq9"
+                     Source="https://embed.tawk.to/6aada9ef44c40a343ef893c2/1k2r5vkq9"
+                     HeightRequest="600"
                      BackgroundColor="White"/>
                 </Grid>
             </Border>
         </Grid>
-        
+
         <!-- QUIZ MODAL -->
         <Grid Grid.Row="0" Grid.RowSpan="3"
               x:Name="QuizModal" IsVisible="False" BackgroundColor="#F5F7F5"

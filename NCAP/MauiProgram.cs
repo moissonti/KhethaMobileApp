@@ -17,6 +17,17 @@ namespace NCAP
                     fonts.AddFont("MaterialIconsRound-Regular.otf", "MaterialRound");
                 });
 
+#if ANDROID
+            Microsoft.Maui.Handlers.WebViewHandler.Mapper.AppendToMapping("EnableJavaScript", (handler, view) =>
+            {
+                handler.PlatformView.Settings.JavaScriptEnabled = true;
+                handler.PlatformView.Settings.DomStorageEnabled = true;
+                handler.PlatformView.Settings.LoadWithOverviewMode = true;
+                handler.PlatformView.Settings.UseWideViewPort = true;
+                handler.PlatformView.Settings.MixedContentMode = Android.Webkit.MixedContentHandling.AlwaysAllow;
+            });
+#endif
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
