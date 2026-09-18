@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NCAP.Views.RegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F7F5">
+
+    <Grid RowDefinitions="200,*,Auto">
+
+        <!-- ═══════════════════════════════ -->
+        <!-- HEADER                          -->
+        <!-- ═══════════════════════════════ -->
+        <Grid Grid.Row="0" BackgroundColor="#1A3C2E">
+            <VerticalStackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="8"
+                                 Margin="0,40,0,0">
+                <Image Source="khetha_logo.png"
+                       HeightRequest="48"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"/>
+                <Label Text="Create a free account"
+                       FontSize="14"
+                       TextColor="#CCFFFFFF"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- FORM                            -->
+        <!-- ═══════════════════════════════ -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="24,32,24,24" Spacing="0">
+
+                <!-- Full Name -->
+                <Label Text="FULL NAME"
+                       FontSize="11" FontAttributes="Bold"
+                       TextColor="#1A3C2E" CharacterSpacing="1.2"
+                       Margin="0,0,0,8"/>
+                <Border BackgroundColor="White" StrokeThickness="1.5"
+                        Stroke="#E0E0E0" Padding="0" Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="FullNameEntry"
+                           Placeholder="Your full name"
+                           PlaceholderColor="#AAAAAA"
+                           TextColor="#1A3C2E" FontSize="14"
+                           Margin="16,0" HeightRequest="52"
+                           BackgroundColor="Transparent"/>
+                </Border>
+                <Label x:Name="FullNameError"
+                       Text="Please enter your full name"
+                       FontSize="11" TextColor="#D32F2F"
+                       IsVisible="False" Margin="4,0,0,0"/>
+
+                <!-- Email -->
+                <Label Text="EMAIL ADDRESS"
+                       FontSize="11" FontAttributes="Bold"
+                       TextColor="#1A3C2E" CharacterSpacing="1.2"
+                       Margin="0,20,0,8"/>
+                <Border BackgroundColor="White" StrokeThickness="1.5"
+                        Stroke="#E0E0E0" Padding="0" Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="EmailEntry"
+                           Placeholder="you@example.com"
+                           PlaceholderColor="#AAAAAA"
+                           TextColor="#1A3C2E" FontSize="14"
+                           Keyboard="Email"
+                           Margin="16,0" HeightRequest="52"
+                           BackgroundColor="Transparent"/>
+                </Border>
+                <Label x:Name="EmailError"
+                       Text="Please enter a valid email address"
+                       FontSize="11" TextColor="#D32F2F"
+                       IsVisible="False" Margin="4,0,0,0"/>
+
+                <!-- Mobile Number -->
+                <Label Text="MOBILE NUMBER"
+                       FontSize="11" FontAttributes="Bold"
+                       TextColor="#1A3C2E" CharacterSpacing="1.2"
+                       Margin="0,20,0,8"/>
+                <Border BackgroundColor="White" StrokeThickness="1.5"
+                        Stroke="#E0E0E0" Padding="0" Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="Auto,*" Margin="16,0">
+                        <Label Text="+27"
+                               FontSize="14" TextColor="#1A3C2E"
+                               VerticalOptions="Center"
+                               Margin="0,0,8,0"/>
+                        <BoxView Grid.Column="0" WidthRequest="1"
+                                 HeightRequest="24" Color="#E0E0E0"
+                                 VerticalOptions="Center"
+                                 Margin="32,0,0,0"/>
+                        <Entry x:Name="MobileEntry"
+                               Grid.Column="1"
+                               Placeholder="81 234 5678"
+                               PlaceholderColor="#AAAAAA"
+                               TextColor="#1A3C2E" FontSize="14"
+                               Keyboard="Telephone"
+                               HeightRequest="52"
+                               BackgroundColor="Transparent"
+                               Margin="8,0,0,0"/>
+                    </Grid>
+                </Border>
+                <Label x:Name="MobileError"
+                       Text="Please enter a valid mobile number"
+                       FontSize="11" TextColor="#D32F2F"
+                       IsVisible="False" Margin="4,0,0,0"/>
+
+                <!-- Password -->
+                <Label Text="PASSWORD"
+                       FontSize="11" FontAttributes="Bold"
+                       TextColor="#1A3C2E" CharacterSpacing="1.2"
+                       Margin="0,20,0,8"/>
+                <Border BackgroundColor="White" StrokeThickness="1.5"
+                        Stroke="#E0E0E0" Padding="0" Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,Auto" Margin="16,0">
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Min. 8 characters"
+                               PlaceholderColor="#AAAAAA"
+                               TextColor="#1A3C2E" FontSize="14"
+                               IsPassword="True"
+                               HeightRequest="52"
+                               BackgroundColor="Transparent"/>
+                        <Label Grid.Column="1"
+                               x:Name="TogglePasswordLabel"
+                               Text="&#xE8F4;"
+                               FontFamily="MaterialOutlined"
+                               FontSize="22" TextColor="#999999"
+                               VerticalOptions="Center"
+                               Margin="0,0,4,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTogglePassword"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Border>
+                <Label x:Name="PasswordError"
+                       Text="Password must be at least 8 characters"
+                       FontSize="11" TextColor="#D32F2F"
+                       IsVisible="False" Margin="4,0,0,0"/>
+
+                <!-- Confirm Password -->
+                <Label Text="CONFIRM PASSWORD"
+                       FontSize="11" FontAttributes="Bold"
+                       TextColor="#1A3C2E" CharacterSpacing="1.2"
+                       Margin="0,20,0,8"/>
+                <Border BackgroundColor="White" StrokeThickness="1.5"
+                        Stroke="#E0E0E0" Padding="0" Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,Auto" Margin="16,0">
+                        <Entry x:Name="ConfirmPasswordEntry"
+                               Placeholder="Repeat your password"
+                               PlaceholderColor="#AAAAAA"
+                               TextColor="#1A3C2E" FontSize="14"
+                               IsPassword="True"
+                               HeightRequest="52"
+                               BackgroundColor="Transparent"/>
+                        <Label Grid.Column="1"
+                               x:Name="ToggleConfirmLabel"
+                               Text="&#xE8F4;"
+                               FontFamily="MaterialOutlined"
+                               FontSize="22" TextColor="#999999"
+                               VerticalOptions="Center"
+                               Margin="0,0,4,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnToggleConfirmPassword"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Border>
+                <Label x:Name="ConfirmPasswordError"
+                       Text="Passwords do not match"
+                       FontSize="11" TextColor="#D32F2F"
+                       IsVisible="False" Margin="4,0,0,0"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- BOTTOM BUTTONS                  -->
+        <!-- ═══════════════════════════════ -->
+        <Grid Grid.Row="2"
+              RowDefinitions="Auto,Auto"
+              BackgroundColor="#F5F7F5"
+              Padding="24,12,24,36"
+              RowSpacing="10">
+
+            <!-- Create Account -->
+            <Border Grid.Row="0"
+                    BackgroundColor="#C8972B"
+                    StrokeThickness="0"
+                    HeightRequest="54">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRegisterTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="Create Account"
+                       FontSize="15" FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Border>
+
+            <!-- Back -->
+            <Border Grid.Row="1"
+                    BackgroundColor="Transparent"
+                    StrokeThickness="1.5"
+                    Stroke="#DDDDDD"
+                    HeightRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="Back"
+                       FontSize="15"
+                       TextColor="#666666"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

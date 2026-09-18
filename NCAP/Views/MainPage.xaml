@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NCAP.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F7F5">
+
+    <Grid RowDefinitions="260,*,Auto">
+
+        <!-- CAROUSEL -->
+        <Grid x:Name="CarouselContainer" Grid.Row="0" HeightRequest="260" ZIndex="10">
+
+            <Image x:Name="SlideImage" Aspect="AspectFill" HeightRequest="260"
+                   VerticalOptions="Fill" HorizontalOptions="Fill" />
+
+            <!-- Bottom gradient -->
+            <BoxView VerticalOptions="Fill" HorizontalOptions="Fill">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#00000000" Offset="0.0" />
+                        <GradientStop Color="#DD000000" Offset="1.0" />
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <!-- Top scrim for logos -->
+            <BoxView VerticalOptions="Start" HeightRequest="80" HorizontalOptions="Fill">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#99000000" Offset="0.0" />
+                        <GradientStop Color="#00000000" Offset="1.0" />
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <!-- Logos -->
+            <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Start"
+                       Margin="16,44,0,0" Spacing="12">
+                <Image Source="dhet_logo.png"
+           HeightRequest="36"
+           WidthRequest="100"
+           Aspect="AspectFit" />
+                <BoxView WidthRequest="1" HeightRequest="30"
+             Color="#66FFFFFF" VerticalOptions="Center" />
+                <Image Source="khetha_logo.png"
+           HeightRequest="36"
+           WidthRequest="80"
+           Aspect="AspectFit" />
+            </HorizontalStackLayout>
+
+            <Label x:Name="SlideBadgeLabel" VerticalOptions="End" HorizontalOptions="Start"
+                   Margin="20,0,20,44" FontSize="22" FontAttributes="Bold"
+                   TextColor="White" CharacterSpacing="1.2" />
+
+            <Label x:Name="SlideSubtitleLabel" VerticalOptions="End" HorizontalOptions="Start"
+                   Margin="20,0,20,24" FontSize="13" TextColor="#CCFFFFFF" />
+
+            <HorizontalStackLayout x:Name="DotsContainer" HorizontalOptions="Center"
+                                   VerticalOptions="End" Margin="0,0,0,8" Spacing="6" />
+        </Grid>
+
+        <!-- SCROLLABLE CONTENT -->
+        <ScrollView Grid.Row="1" BackgroundColor="#F5F7F5">
+            <VerticalStackLayout Spacing="0" Padding="0,0,0,20">
+
+                <!-- Tagline strip -->
+                <VerticalStackLayout BackgroundColor="White" Padding="20,16,20,16" Spacing="2">
+                    <Label Text="Your Career Guidance Companion, On the Go"
+                           FontSize="16" FontAttributes="Bold" TextColor="#1A3C2E"
+                           HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                    <Label Text="Free · Trusted · For Every South African"
+                           FontSize="11" TextColor="#4CAF93"
+                           HorizontalOptions="Center" Margin="0,2,0,0" />
+                </VerticalStackLayout>
+
+                <Label Text="WHAT YOU CAN DO" FontSize="11" FontAttributes="Bold"
+                       TextColor="#999999" CharacterSpacing="1.5" Margin="16,16,16,10" />
+
+                <!-- 2-COLUMN GRID -->
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto"
+                      ColumnSpacing="10" RowSpacing="10" Margin="16,0,16,0">
+
+                    <!-- Card 1: Career Choice Quiz -->
+                    <Border Grid.Row="0" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="14,16" Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44"
+                                    StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8F8;" FontFamily="MaterialOutlined"
+                                       FontSize="24" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Career Choice Quiz" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label Text="Personalised career suggestions" FontSize="11"
+                                   TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label Text="Start →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Card 2: Subject Chooser -->
+                    <Border Grid.Row="0" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="14,16" Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44"
+                                    StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE865;" FontFamily="MaterialOutlined"
+                                       FontSize="24" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Subject Chooser" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label Text="Right subjects for your stream" FontSize="11"
+                                   TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label Text="Start →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Card 3: Job Fit Assessment -->
+                    <Border Grid.Row="1" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="14,16" Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44"
+                                    StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xEA4A;" FontFamily="MaterialOutlined"
+                                       FontSize="24" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Job Fit Assessment" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label Text="Find roles that suit your personality" FontSize="11"
+                                   TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label Text="Start →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Card 4: Study Directories -->
+                    <Border Grid.Row="1" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="14,16" Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44"
+                                    StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE80C;" FontFamily="MaterialOutlined"
+                                       FontSize="24" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Study Directories" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label Text="Universities, TVETs &amp; qualifications" FontSize="11"
+                                   TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label Text="Explore →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Card 5: Green & High-Demand -->
+                    <Border Grid.Row="2" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="14,16" Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44"
+                                    StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8E5;" FontFamily="MaterialOutlined"
+                                       FontSize="24" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Green &amp; High-Demand" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label Text="Future-ready occupation insights" FontSize="11"
+                                   TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label Text="View →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Card 6: Works Offline -->
+                    <Border Grid.Row="2" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="14,16" Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44"
+                                    StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE648;" FontFamily="MaterialOutlined"
+                                       FontSize="24" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Works Offline" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label Text="Low-bandwidth &amp; rural friendly" FontSize="11"
+                                   TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label Text="Learn more →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+
+                <Label Text="A free service by the Department of Higher Education &amp; Training"
+                       FontSize="11" TextColor="#AAAAAA"
+                       HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                       Margin="24,20,24,0" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- BOTTOM BUTTONS -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" BackgroundColor="White"
+              Padding="16,12,16,28" ColumnSpacing="12">
+            <Grid.Shadow>
+                <Shadow Brush="#22000000" Offset="0,-3" Radius="12" Opacity="0.10"/>
+            </Grid.Shadow>
+
+            <Border Grid.Column="0" BackgroundColor="#C8972B" StrokeThickness="0" HeightRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRegisterTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="Register" FontSize="15" FontAttributes="Bold"
+                       TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+
+            <Border Grid.Column="1" BackgroundColor="#1A3C2E" StrokeThickness="0" HeightRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLoginTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="Log In" FontSize="15" FontAttributes="Bold"
+                       TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

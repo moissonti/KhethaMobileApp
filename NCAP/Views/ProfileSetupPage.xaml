@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NCAP.Views.ProfileSetupPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F7F5">
+
+    <Grid RowDefinitions="160,*,Auto">
+
+        <!-- HEADER -->
+        <Grid Grid.Row="0" BackgroundColor="#1A3C2E">
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center"
+                                 Spacing="6" Margin="0,40,0,0">
+                <Image Source="khetha_logo.png" HeightRequest="40"
+                       Aspect="AspectFit" HorizontalOptions="Center"/>
+                <Label x:Name="HeaderSubtitle" Text="Tell us about yourself"
+                       FontSize="13" TextColor="#CCFFFFFF" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- CONTENT -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="24,28,24,24" Spacing="0">
+
+                <!-- STEP INDICATOR -->
+                <Grid ColumnDefinitions="Auto,*,Auto,*,Auto"
+                      Margin="0,0,0,28" HorizontalOptions="Center" WidthRequest="260">
+                    <Border x:Name="Step1Dot" BackgroundColor="#1A3C2E"
+                            WidthRequest="32" HeightRequest="32" StrokeThickness="0" HorizontalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Label Text="1" FontSize="13" FontAttributes="Bold" TextColor="White"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <BoxView x:Name="StepLine1" Grid.Column="1" HeightRequest="2"
+                             Color="#E0E0E0" VerticalOptions="Center"/>
+                    <Border x:Name="Step2Dot" Grid.Column="2" BackgroundColor="#E0E0E0"
+                            WidthRequest="32" HeightRequest="32" StrokeThickness="0" HorizontalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Label x:Name="Step2Label" Text="2" FontSize="13" TextColor="#999999"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <BoxView x:Name="StepLine2" Grid.Column="3" HeightRequest="2"
+                             Color="#E0E0E0" VerticalOptions="Center"/>
+                    <Border x:Name="Step3Dot" Grid.Column="4" BackgroundColor="#E0E0E0"
+                            WidthRequest="32" HeightRequest="32" StrokeThickness="0" HorizontalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Label x:Name="Step3Label" Text="✓" FontSize="13" TextColor="#999999"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                </Grid>
+
+                <!-- STEP 1 — BASIC INFO -->
+                <VerticalStackLayout x:Name="Step1View" Spacing="0">
+                    <Label Text="Who are you?" FontSize="20" FontAttributes="Bold"
+                           TextColor="#1A3C2E" Margin="0,0,0,4"/>
+                    <Label Text="This helps us personalise your career journey."
+                           FontSize="13" TextColor="#888888" Margin="0,0,0,24"/>
+
+                    <Label Text="I AM A..." FontSize="11" FontAttributes="Bold"
+                           TextColor="#1A3C2E" CharacterSpacing="1.2" Margin="0,0,0,10"/>
+
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+                          ColumnSpacing="10" RowSpacing="10" Margin="0,0,0,6">
+                        <Border x:Name="CatLearner" Grid.Row="0" Grid.Column="0"
+                                BackgroundColor="White" StrokeThickness="2"
+                                Stroke="#E0E0E0" HeightRequest="76">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCategoryTapped" CommandParameter="Learner"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                                <Label Text="&#xE80C;" FontFamily="MaterialOutlined" FontSize="22"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                                <Label Text="Learner" FontSize="12" FontAttributes="Bold"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border x:Name="CatMatric" Grid.Row="0" Grid.Column="1"
+                                BackgroundColor="White" StrokeThickness="2"
+                                Stroke="#E0E0E0" HeightRequest="76">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCategoryTapped" CommandParameter="Matric"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                                <Label Text="&#xE8F8;" FontFamily="MaterialOutlined" FontSize="22"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                                <Label Text="Matric" FontSize="12" FontAttributes="Bold"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border x:Name="CatJobSeeker" Grid.Row="1" Grid.Column="0"
+                                BackgroundColor="White" StrokeThickness="2"
+                                Stroke="#E0E0E0" HeightRequest="76">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCategoryTapped" CommandParameter="JobSeeker"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                                <Label Text="&#xE8E5;" FontFamily="MaterialOutlined" FontSize="22"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                                <Label Text="Job Seeker" FontSize="12" FontAttributes="Bold"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border x:Name="CatCareerChanger" Grid.Row="1" Grid.Column="1"
+                                BackgroundColor="White" StrokeThickness="2"
+                                Stroke="#E0E0E0" HeightRequest="76">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCategoryTapped" CommandParameter="CareerChanger"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                                <Label Text="&#xE8D5;" FontFamily="MaterialOutlined" FontSize="22"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                                <Label Text="Career Changer" FontSize="12" FontAttributes="Bold"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+
+                    <Label x:Name="CategoryError" Text="Please select a category"
+                           FontSize="11" TextColor="#D32F2F" IsVisible="False" Margin="0,4,0,16"/>
+
+                    <Label Text="PROVINCE" FontSize="11" FontAttributes="Bold"
+                           TextColor="#1A3C2E" CharacterSpacing="1.2" Margin="0,8,0,8"/>
+                    <Border BackgroundColor="White" StrokeThickness="1.5" Stroke="#E0E0E0" Margin="0,0,0,6">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Picker x:Name="ProvincePicker" Title="Select your province"
+                                TitleColor="#AAAAAA" TextColor="#1A3C2E" FontSize="14"
+                                Margin="16,0" HeightRequest="52" BackgroundColor="Transparent">
+                            <Picker.Items>
+                                <x:String>Eastern Cape</x:String>
+                                <x:String>Free State</x:String>
+                                <x:String>Gauteng</x:String>
+                                <x:String>KwaZulu-Natal</x:String>
+                                <x:String>Limpopo</x:String>
+                                <x:String>Mpumalanga</x:String>
+                                <x:String>North West</x:String>
+                                <x:String>Northern Cape</x:String>
+                                <x:String>Western Cape</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Border>
+                    <Label x:Name="ProvinceError" Text="Please select your province"
+                           FontSize="11" TextColor="#D32F2F" IsVisible="False" Margin="4,0,0,6"/>
+
+                    <Label Text="HOME LANGUAGE" FontSize="11" FontAttributes="Bold"
+                           TextColor="#1A3C2E" CharacterSpacing="1.2" Margin="0,16,0,8"/>
+                    <Border BackgroundColor="White" StrokeThickness="1.5" Stroke="#E0E0E0" Margin="0,0,0,6">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Picker x:Name="LanguagePicker" Title="Select your home language"
+                                TitleColor="#AAAAAA" TextColor="#1A3C2E" FontSize="14"
+                                Margin="16,0" HeightRequest="52" BackgroundColor="Transparent">
+                            <Picker.Items>
+                                <x:String>IsiZulu</x:String>
+                                <x:String>IsiXhosa</x:String>
+                                <x:String>Afrikaans</x:String>
+                                <x:String>English</x:String>
+                                <x:String>Sepedi</x:String>
+                                <x:String>Setswana</x:String>
+                                <x:String>Sesotho</x:String>
+                                <x:String>Xitsonga</x:String>
+                                <x:String>Siswati</x:String>
+                                <x:String>Tshivenda</x:String>
+                                <x:String>IsiNdebele</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Border>
+                    <Label x:Name="LanguageError" Text="Please select your home language"
+                           FontSize="11" TextColor="#D32F2F" IsVisible="False" Margin="4,0,0,0"/>
+                </VerticalStackLayout>
+
+                <!-- STEP 2 — INTEREST QUIZ -->
+                <VerticalStackLayout x:Name="Step2View" IsVisible="False" Spacing="0">
+                    <Label Text="What interests you?" FontSize="20" FontAttributes="Bold"
+                           TextColor="#1A3C2E" Margin="0,0,0,4"/>
+                    <Label Text="Tap Yes or No. Be honest — there's no wrong answer."
+                           FontSize="13" TextColor="#888888" Margin="0,0,0,20"/>
+
+                    <!-- Progress -->
+                    <Grid Margin="0,0,0,8">
+                        <BoxView HeightRequest="6" Color="#E0E0E0" CornerRadius="3" HorizontalOptions="Fill"/>
+                        <BoxView x:Name="QuizProgressBar" HeightRequest="6" Color="#1A3C2E"
+                                 CornerRadius="3" HorizontalOptions="Start" WidthRequest="20"/>
+                    </Grid>
+                    <Label x:Name="QuestionCounter" Text="Question 1 of 15"
+                           FontSize="11" TextColor="#999999"
+                           HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+                    <!-- Question card -->
+                    <Border BackgroundColor="White" StrokeThickness="0"
+                            MinimumHeightRequest="160" Margin="0,0,0,20">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,4" Radius="16" Opacity="0.12"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Padding="28,32" Spacing="16" VerticalOptions="Center">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="52" HeightRequest="52"
+                                    StrokeThickness="0" HorizontalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="14"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8F8;" FontFamily="MaterialOutlined" FontSize="28"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label x:Name="QuestionText" Text=""
+                                   FontSize="17" FontAttributes="Bold" TextColor="#1A3C2E"
+                                   HorizontalTextAlignment="Center" LineBreakMode="WordWrap"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Yes / No -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <Border Grid.Column="0" BackgroundColor="#FFEBEE" StrokeThickness="0" HeightRequest="56">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAnswerNo"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                                <Label Text="&#xE5CD;" FontFamily="MaterialOutlined" FontSize="20"
+                                       TextColor="#D32F2F" VerticalOptions="Center"/>
+                                <Label Text="No" FontSize="15" FontAttributes="Bold"
+                                       TextColor="#D32F2F" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                        <Border Grid.Column="1" BackgroundColor="#E8F5EE" StrokeThickness="0" HeightRequest="56">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAnswerYes"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                                <Label Text="&#xE876;" FontFamily="MaterialOutlined" FontSize="20"
+                                       TextColor="#1A3C2E" VerticalOptions="Center"/>
+                                <Label Text="Yes" FontSize="15" FontAttributes="Bold"
+                                       TextColor="#1A3C2E" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- STEP 3 — RESULTS -->
+                <VerticalStackLayout x:Name="Step3View" IsVisible="False" Spacing="0">
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="8" Margin="0,0,0,28">
+                        <Border BackgroundColor="#E8F5EE" WidthRequest="72" HeightRequest="72"
+                                StrokeThickness="0" HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Label Text="&#xE876;" FontFamily="MaterialOutlined" FontSize="38"
+                                   TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                        <Label Text="Profile Complete!" FontSize="22" FontAttributes="Bold"
+                               TextColor="#1A3C2E" HorizontalOptions="Center"/>
+                        <Label Text="Your top career interest areas:" FontSize="13"
+                               TextColor="#888888" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout x:Name="ResultsContainer" Spacing="10"/>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- BOTTOM BUTTON -->
+        <Grid Grid.Row="2" BackgroundColor="#F5F7F5" Padding="24,12,24,36">
+            <Border x:Name="BottomButton" BackgroundColor="#1A3C2E"
+                    StrokeThickness="0" HeightRequest="54">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBottomButtonTapped"/>
+                </Border.GestureRecognizers>
+                <Label x:Name="BottomButtonLabel" Text="Next"
+                       FontSize="15" FontAttributes="Bold" TextColor="White"
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+        </Grid>
+
+    </Grid>
+</ContentPage>

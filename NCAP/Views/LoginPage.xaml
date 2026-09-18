@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NCAP.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F7F5">
+
+    <Grid RowDefinitions="200,*,Auto">
+
+        <!-- ═══════════════════════════════ -->
+        <!-- HEADER                          -->
+        <!-- ═══════════════════════════════ -->
+        <Grid Grid.Row="0" BackgroundColor="#1A3C2E">
+            <VerticalStackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="8"
+                                 Margin="0,40,0,0">
+                <Image Source="khetha_logo.png"
+                       HeightRequest="48"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"/>
+                <Label Text="Sign in to your account"
+                       FontSize="14"
+                       TextColor="#CCFFFFFF"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- FORM                            -->
+        <!-- ═══════════════════════════════ -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="24,32,24,24" Spacing="0">
+
+                <!-- Email -->
+                <Label Text="EMAIL ADDRESS"
+                       FontSize="11"
+                       FontAttributes="Bold"
+                       TextColor="#1A3C2E"
+                       CharacterSpacing="1.2"
+                       Margin="0,0,0,8"/>
+                <Border BackgroundColor="White"
+                        StrokeThickness="1.5"
+                        Stroke="#E0E0E0"
+                        Padding="0"
+                        Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="EmailEntry"
+                           Placeholder="you@example.com"
+                           PlaceholderColor="#AAAAAA"
+                           TextColor="#1A3C2E"
+                           FontSize="14"
+                           Keyboard="Email"
+                           Margin="16,0"
+                           HeightRequest="52"
+                           BackgroundColor="Transparent"/>
+                </Border>
+                <Label x:Name="EmailError"
+                       Text="Please enter a valid email address"
+                       FontSize="11"
+                       TextColor="#D32F2F"
+                       IsVisible="False"
+                       Margin="4,0,0,0"/>
+
+                <!-- Password -->
+                <Label Text="PASSWORD"
+                       FontSize="11"
+                       FontAttributes="Bold"
+                       TextColor="#1A3C2E"
+                       CharacterSpacing="1.2"
+                       Margin="0,20,0,8"/>
+                <Border BackgroundColor="White"
+                        StrokeThickness="1.5"
+                        Stroke="#E0E0E0"
+                        Padding="0"
+                        Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,Auto" Margin="16,0">
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="••••••••"
+                               PlaceholderColor="#AAAAAA"
+                               TextColor="#1A3C2E"
+                               FontSize="14"
+                               IsPassword="True"
+                               HeightRequest="52"
+                               BackgroundColor="Transparent"/>
+                        <Label Grid.Column="1"
+                               x:Name="TogglePasswordLabel"
+                               Text="&#xE8F4;"
+                               FontFamily="MaterialOutlined"
+                               FontSize="22"
+                               TextColor="#999999"
+                               VerticalOptions="Center"
+                               Margin="0,0,4,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTogglePassword"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Border>
+                <Label x:Name="PasswordError"
+                       Text="Password cannot be empty"
+                       FontSize="11"
+                       TextColor="#D32F2F"
+                       IsVisible="False"
+                       Margin="4,0,0,0"/>
+
+                <!-- Forgot password -->
+                <Label Text="Forgot password?"
+                       FontSize="13"
+                       FontAttributes="Bold"
+                       TextColor="#C8972B"
+                       HorizontalOptions="End"
+                       Margin="0,12,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotPassword"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <!-- General error -->
+                <Border x:Name="GeneralErrorBorder"
+                        BackgroundColor="#FFEBEE"
+                        StrokeThickness="0"
+                        Padding="14,10"
+                        Margin="0,16,0,0"
+                        IsVisible="False">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Label x:Name="GeneralError"
+                           Text="Invalid email or password. Please try again."
+                           FontSize="13"
+                           TextColor="#D32F2F"/>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- BOTTOM BUTTONS                  -->
+        <!-- ═══════════════════════════════ -->
+        <Grid Grid.Row="2"
+              RowDefinitions="Auto,Auto"
+              BackgroundColor="#F5F7F5"
+              Padding="24,12,24,36"
+              RowSpacing="10">
+
+            <!-- Sign In -->
+            <Border Grid.Row="0"
+                    BackgroundColor="#1A3C2E"
+                    StrokeThickness="0"
+                    HeightRequest="54">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSignInTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="Sign In"
+                       FontSize="15"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Border>
+
+            <!-- Back -->
+            <Border Grid.Row="1"
+                    BackgroundColor="Transparent"
+                    StrokeThickness="1.5"
+                    Stroke="#DDDDDD"
+                    HeightRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="Back"
+                       FontSize="15"
+                       TextColor="#666666"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

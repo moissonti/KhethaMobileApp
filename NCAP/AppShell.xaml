@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="NCAP.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:NCAP"
+    xmlns:dashboard="clr-namespace:NCAP.Views.Dashboard"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarBackgroundColor="#1A3C2E"
+    Shell.TabBarForegroundColor="White"
+    Shell.TabBarTitleColor="White"
+    Shell.TabBarUnselectedColor="#6A9A7E"
+    Title="NCAP">
+
+    <!-- PRE-LOGIN -->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage"
+        Shell.TabBarIsVisible="False"/>
+
+    <!-- POST-LOGIN TABS -->
+    <TabBar Route="DashboardTabs" Shell.TabBarIsVisible="True">
+
+        <ShellContent
+            Title="Home"
+            Route="DashboardPage"
+            ContentTemplate="{DataTemplate dashboard:DashboardPage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xE88A;"
+                                 FontFamily="MaterialOutlined"
+                                 Color="White"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="Explore"
+            Route="ExplorePage"
+            ContentTemplate="{DataTemplate dashboard:ExplorePage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xE8B6;"
+                                 FontFamily="MaterialOutlined"
+                                 Color="White"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="Guide"
+            Route="GuidePage"
+            ContentTemplate="{DataTemplate dashboard:GuidePage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xE8D4;"
+                                 FontFamily="MaterialOutlined"
+                                 Color="White"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="Study"
+            Route="StudyPage"
+            ContentTemplate="{DataTemplate dashboard:StudyPage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xE80C;"
+                                 FontFamily="MaterialOutlined"
+                                 Color="White"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="Profile"
+            Route="ProfilePage"
+            ContentTemplate="{DataTemplate dashboard:ProfilePage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xE7FD;"
+                                 FontFamily="MaterialOutlined"
+                                 Color="White"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+    </TabBar>
+
+</Shell>
