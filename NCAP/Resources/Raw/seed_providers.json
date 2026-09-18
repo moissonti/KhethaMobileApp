@@ -1,0 +1,492 @@
+[
+  {
+    "name": "University of Cape Town (UCT)",
+    "type": "University",
+    "province": "Western Cape",
+    "city": "Cape Town",
+    "lat": -33.9577,
+    "lng": 18.4612,
+    "phone": "021 650 9111",
+    "website": "https://www.uct.ac.za"
+  },
+  {
+    "name": "University of the Witwatersrand (Wits)",
+    "type": "University",
+    "province": "Gauteng",
+    "city": "Johannesburg",
+    "lat": -26.1929,
+    "lng": 28.0305,
+    "phone": "011 717 1000",
+    "website": "https://www.wits.ac.za"
+  },
+  {
+    "name": "Stellenbosch University",
+    "type": "University",
+    "province": "Western Cape",
+    "city": "Stellenbosch",
+    "lat": -33.9321,
+    "lng": 18.8602,
+    "phone": "021 808 9111",
+    "website": "https://www.sun.ac.za"
+  },
+  {
+    "name": "University of Pretoria (UP)",
+    "type": "University",
+    "province": "Gauteng",
+    "city": "Pretoria",
+    "lat": -25.7545,
+    "lng": 28.2314,
+    "phone": "012 420 3111",
+    "website": "https://www.up.ac.za"
+  },
+  {
+    "name": "University of KwaZulu-Natal (UKZN)",
+    "type": "University",
+    "province": "KwaZulu-Natal",
+    "city": "Durban",
+    "lat": -29.8674,
+    "lng": 30.9807,
+    "phone": "031 260 1111",
+    "website": "https://www.ukzn.ac.za"
+  },
+  {
+    "name": "University of Johannesburg (UJ)",
+    "type": "University",
+    "province": "Gauteng",
+    "city": "Johannesburg",
+    "lat": -26.1833,
+    "lng": 28.0,
+    "phone": "011 559 4555",
+    "website": "https://www.uj.ac.za"
+  },
+  {
+    "name": "University of the Free State (UFS)",
+    "type": "University",
+    "province": "Free State",
+    "city": "Bloemfontein",
+    "lat": -29.1078,
+    "lng": 26.1862,
+    "phone": "051 401 9111",
+    "website": "https://www.ufs.ac.za"
+  },
+  {
+    "name": "Rhodes University",
+    "type": "University",
+    "province": "Eastern Cape",
+    "city": "Makhanda (Grahamstown)",
+    "lat": -33.3112,
+    "lng": 26.5231,
+    "phone": "046 603 8111",
+    "website": "https://www.ru.ac.za"
+  },
+  {
+    "name": "Nelson Mandela University (NMU)",
+    "type": "University",
+    "province": "Eastern Cape",
+    "city": "Gqeberha (Port Elizabeth)",
+    "lat": -33.985,
+    "lng": 25.6726,
+    "phone": "041 504 1111",
+    "website": "https://www.mandela.ac.za"
+  },
+  {
+    "name": "University of Fort Hare (UFH)",
+    "type": "University",
+    "province": "Eastern Cape",
+    "city": "Alice",
+    "lat": -32.7873,
+    "lng": 26.8434,
+    "phone": "040 602 2011",
+    "website": "https://www.ufh.ac.za"
+  },
+  {
+    "name": "Walter Sisulu University (WSU)",
+    "type": "University",
+    "province": "Eastern Cape",
+    "city": "Mthatha",
+    "lat": -31.5837,
+    "lng": 28.7639,
+    "phone": "047 502 2111",
+    "website": "https://www.wsu.ac.za"
+  },
+  {
+    "name": "University of Limpopo (UL)",
+    "type": "University",
+    "province": "Limpopo",
+    "city": "Polokwane",
+    "lat": -23.8868,
+    "lng": 29.7383,
+    "phone": "015 268 9111",
+    "website": "https://www.ul.ac.za"
+  },
+  {
+    "name": "North-West University (NWU)",
+    "type": "University",
+    "province": "North West",
+    "city": "Potchefstroom",
+    "lat": -26.6851,
+    "lng": 27.0925,
+    "phone": "018 299 1111",
+    "website": "https://www.nwu.ac.za"
+  },
+  {
+    "name": "University of Venda (UNIVEN)",
+    "type": "University",
+    "province": "Limpopo",
+    "city": "Thohoyandou",
+    "lat": -23.0138,
+    "lng": 30.4226,
+    "phone": "015 962 8000",
+    "website": "https://www.univen.ac.za"
+  },
+  {
+    "name": "University of Zululand (UNIZULU)",
+    "type": "University",
+    "province": "KwaZulu-Natal",
+    "city": "KwaDlangezwa",
+    "lat": -28.8547,
+    "lng": 31.8491,
+    "phone": "035 902 6000",
+    "website": "https://www.unizulu.ac.za"
+  },
+  {
+    "name": "University of the Western Cape (UWC)",
+    "type": "University",
+    "province": "Western Cape",
+    "city": "Bellville",
+    "lat": -33.9333,
+    "lng": 18.6286,
+    "phone": "021 959 2911",
+    "website": "https://www.uwc.ac.za"
+  },
+  {
+    "name": "University of South Africa (UNISA)",
+    "type": "University",
+    "province": "Gauteng",
+    "city": "Pretoria (Distance Learning)",
+    "lat": -25.7676,
+    "lng": 28.2008,
+    "phone": "012 429 3111",
+    "website": "https://www.unisa.ac.za"
+  },
+  {
+    "name": "Tshwane University of Technology (TUT)",
+    "type": "University of Technology",
+    "province": "Gauteng",
+    "city": "Pretoria",
+    "lat": -25.7313,
+    "lng": 28.1635,
+    "phone": "012 382 5911",
+    "website": "https://www.tut.ac.za"
+  },
+  {
+    "name": "Cape Peninsula University of Technology (CPUT)",
+    "type": "University of Technology",
+    "province": "Western Cape",
+    "city": "Cape Town",
+    "lat": -33.929,
+    "lng": 18.6399,
+    "phone": "021 959 6767",
+    "website": "https://www.cput.ac.za"
+  },
+  {
+    "name": "Durban University of Technology (DUT)",
+    "type": "University of Technology",
+    "province": "KwaZulu-Natal",
+    "city": "Durban",
+    "lat": -29.8563,
+    "lng": 31.0098,
+    "phone": "031 373 2000",
+    "website": "https://www.dut.ac.za"
+  },
+  {
+    "name": "Vaal University of Technology (VUT)",
+    "type": "University of Technology",
+    "province": "Gauteng",
+    "city": "Vanderbijlpark",
+    "lat": -26.7108,
+    "lng": 27.8623,
+    "phone": "016 950 9000",
+    "website": "https://www.vut.ac.za"
+  },
+  {
+    "name": "Central University of Technology (CUT)",
+    "type": "University of Technology",
+    "province": "Free State",
+    "city": "Bloemfontein",
+    "lat": -29.1219,
+    "lng": 26.2145,
+    "phone": "051 507 3911",
+    "website": "https://www.cut.ac.za"
+  },
+  {
+    "name": "Mangosuthu University of Technology (MUT)",
+    "type": "University of Technology",
+    "province": "KwaZulu-Natal",
+    "city": "Durban",
+    "lat": -29.9656,
+    "lng": 30.9166,
+    "phone": "031 907 7111",
+    "website": "https://www.mut.ac.za"
+  },
+  {
+    "name": "Sol Plaatje University",
+    "type": "University",
+    "province": "Northern Cape",
+    "city": "Kimberley",
+    "lat": -28.7328,
+    "lng": 24.7665,
+    "phone": "053 491 0000",
+    "website": "https://www.spu.ac.za"
+  },
+  {
+    "name": "University of Mpumalanga (UMP)",
+    "type": "University",
+    "province": "Mpumalanga",
+    "city": "Mbombela",
+    "lat": -25.4653,
+    "lng": 30.9853,
+    "phone": "013 002 0001",
+    "website": "https://www.ump.ac.za"
+  },
+  {
+    "name": "Sefako Makgatho Health Sciences University (SMU)",
+    "type": "University",
+    "province": "Gauteng",
+    "city": "Pretoria",
+    "lat": -25.6219,
+    "lng": 28.0178,
+    "phone": "012 521 4111",
+    "website": "https://www.smu.ac.za"
+  },
+  {
+    "name": "Buffalo City TVET College",
+    "type": "TVET College",
+    "province": "Eastern Cape",
+    "city": "East London",
+    "lat": -32.9833,
+    "lng": 27.8833,
+    "phone": "043 704 9218",
+    "website": "https://www.bccollege.co.za"
+  },
+  {
+    "name": "King Hintsa TVET College",
+    "type": "TVET College",
+    "province": "Eastern Cape",
+    "city": "Butterworth",
+    "lat": -32.3314,
+    "lng": 28.1483,
+    "phone": "047 401 6400",
+    "website": "https://www.kinghintsacollege.edu.za"
+  },
+  {
+    "name": "Ikhala TVET College",
+    "type": "TVET College",
+    "province": "Eastern Cape",
+    "city": "Queenstown",
+    "lat": -31.8979,
+    "lng": 26.8755,
+    "phone": "047 873 8843",
+    "website": "https://www.ikhalacollege.co.za"
+  },
+  {
+    "name": "Lovedale TVET College",
+    "type": "TVET College",
+    "province": "Eastern Cape",
+    "city": "Alice",
+    "lat": -32.7877,
+    "lng": 26.8326,
+    "phone": "040 653 4677",
+    "website": "https://www.lovedalecollege.co.za"
+  },
+  {
+    "name": "Port Elizabeth TVET College",
+    "type": "TVET College",
+    "province": "Eastern Cape",
+    "city": "Gqeberha",
+    "lat": -33.9608,
+    "lng": 25.6022,
+    "phone": "041 509 6000",
+    "website": "https://www.pecollege.edu.za"
+  },
+  {
+    "name": "Eastcape Midlands TVET College",
+    "type": "TVET College",
+    "province": "Eastern Cape",
+    "city": "Uitenhage",
+    "lat": -33.7663,
+    "lng": 25.3979,
+    "phone": "041 995 2000",
+    "website": "https://www.emcol.co.za"
+  },
+  {
+    "name": "College of Cape Town",
+    "type": "TVET College",
+    "province": "Western Cape",
+    "city": "Cape Town",
+    "lat": -33.9258,
+    "lng": 18.4232,
+    "phone": "021 404 6700",
+    "website": "https://www.cct.edu.za"
+  },
+  {
+    "name": "False Bay TVET College",
+    "type": "TVET College",
+    "province": "Western Cape",
+    "city": "Fish Hoek",
+    "lat": -34.1361,
+    "lng": 18.4274,
+    "phone": "021 003 0600",
+    "website": "https://www.falsebaycollege.co.za"
+  },
+  {
+    "name": "Northlink TVET College",
+    "type": "TVET College",
+    "province": "Western Cape",
+    "city": "Bellville",
+    "lat": -33.9,
+    "lng": 18.6333,
+    "phone": "021 970 9000",
+    "website": "https://www.northlink.co.za"
+  },
+  {
+    "name": "Ekurhuleni East TVET College",
+    "type": "TVET College",
+    "province": "Gauteng",
+    "city": "Springs",
+    "lat": -26.25,
+    "lng": 28.4397,
+    "phone": "011 730 6600",
+    "website": "https://www.eec.edu.za"
+  },
+  {
+    "name": "Ekurhuleni West TVET College",
+    "type": "TVET College",
+    "province": "Gauteng",
+    "city": "Germiston",
+    "lat": -26.2155,
+    "lng": 28.1717,
+    "phone": "011 323 1600",
+    "website": "https://www.ewc.edu.za"
+  },
+  {
+    "name": "Sedibeng TVET College",
+    "type": "TVET College",
+    "province": "Gauteng",
+    "city": "Vereeniging",
+    "lat": -26.6734,
+    "lng": 27.9262,
+    "phone": "016 422 6645",
+    "website": "https://www.sedcol.co.za"
+  },
+  {
+    "name": "South West Gauteng TVET College",
+    "type": "TVET College",
+    "province": "Gauteng",
+    "city": "Roodepoort",
+    "lat": -26.1622,
+    "lng": 27.8725,
+    "phone": "086 176 8849",
+    "website": "https://www.swgc.co.za"
+  },
+  {
+    "name": "Tshwane North TVET College",
+    "type": "TVET College",
+    "province": "Gauteng",
+    "city": "Pretoria",
+    "lat": -25.7236,
+    "lng": 28.228,
+    "phone": "012 401 1950",
+    "website": "https://www.tnc.edu.za"
+  },
+  {
+    "name": "Tshwane South TVET College",
+    "type": "TVET College",
+    "province": "Gauteng",
+    "city": "Pretoria",
+    "lat": -25.7654,
+    "lng": 28.1896,
+    "phone": "012 401 5000",
+    "website": "https://www.tsc.edu.za"
+  },
+  {
+    "name": "Coastal KZN TVET College",
+    "type": "TVET College",
+    "province": "KwaZulu-Natal",
+    "city": "Durban",
+    "lat": -29.8587,
+    "lng": 31.0218,
+    "phone": "031 905 7000",
+    "website": "https://www.coastalkzn.co.za"
+  },
+  {
+    "name": "Umfolozi TVET College",
+    "type": "TVET College",
+    "province": "KwaZulu-Natal",
+    "city": "Richards Bay",
+    "lat": -28.783,
+    "lng": 32.0377,
+    "phone": "035 902 9500",
+    "website": "https://www.umfolozicollege.co.za"
+  },
+  {
+    "name": "Motheo TVET College",
+    "type": "TVET College",
+    "province": "Free State",
+    "city": "Bloemfontein",
+    "lat": -29.1216,
+    "lng": 26.214,
+    "phone": "051 406 9300",
+    "website": "https://www.motheotvet.co.za"
+  },
+  {
+    "name": "Capricorn TVET College",
+    "type": "TVET College",
+    "province": "Limpopo",
+    "city": "Polokwane",
+    "lat": -23.9045,
+    "lng": 29.4688,
+    "phone": "015 230 1800",
+    "website": "https://www.capricorncollege.edu.za"
+  },
+  {
+    "name": "Orbit TVET College",
+    "type": "TVET College",
+    "province": "North West",
+    "city": "Rustenburg",
+    "lat": -25.6745,
+    "lng": 27.2421,
+    "phone": "014 597 5500",
+    "website": "https://www.orbitcollege.co.za"
+  },
+  {
+    "name": "Nkangala TVET College",
+    "type": "TVET College",
+    "province": "Mpumalanga",
+    "city": "Witbank",
+    "lat": -25.8713,
+    "lng": 29.2331,
+    "phone": "013 690 1430",
+    "website": "https://www.nkangalacollege.edu.za"
+  },
+  {
+    "name": "Northern Cape Rural TVET College",
+    "type": "TVET College",
+    "province": "Northern Cape",
+    "city": "Upington",
+    "lat": -28.4572,
+    "lng": 21.2566,
+    "phone": "054 337 0600",
+    "website": "https://www.ncrural.edu.za"
+  },
+  {
+    "name": "Northern Cape Urban TVET College",
+    "type": "TVET College",
+    "province": "Northern Cape",
+    "city": "Kimberley",
+    "lat": -28.7282,
+    "lng": 24.7499,
+    "phone": "053 839 2060",
+    "website": "https://www.ncurban.edu.za"
+  }
+]

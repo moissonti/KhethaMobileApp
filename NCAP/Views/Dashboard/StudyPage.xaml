@@ -2,11 +2,314 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NCAP.Views.Dashboard.StudyPage"
-             Title="StudyPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F7F5">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+
+        <!-- HEADER -->
+        <Grid Grid.Row="0" BackgroundColor="#1A3C2E" Padding="20,52,20,20">
+            <VerticalStackLayout Spacing="14">
+                <Label Text="Study Directories"
+                       FontSize="22" FontAttributes="Bold" TextColor="White"/>
+                <Label Text="Find qualifications and institutions across South Africa"
+                       FontSize="12" TextColor="#AADDBB"/>
+
+                <!-- Tab toggle -->
+                <Border BackgroundColor="#2D5A40" StrokeThickness="0" Padding="4">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="0">
+                        <Border x:Name="TabWhat" BackgroundColor="White"
+                                StrokeThickness="0" Padding="0" HeightRequest="40">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTabWhat"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
+                                <Label Text="&#xE865;" FontFamily="MaterialOutlined"
+                                       FontSize="16" TextColor="#1A3C2E" VerticalOptions="Center"/>
+                                <Label Text="What to Study" FontSize="13" FontAttributes="Bold"
+                                       TextColor="#1A3C2E" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                        <Border x:Name="TabWhere" Grid.Column="1"
+                                BackgroundColor="Transparent" StrokeThickness="0"
+                                Padding="0" HeightRequest="40">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTabWhere"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
+                                <Label Text="&#xE80C;" FontFamily="MaterialOutlined"
+                                       FontSize="16" TextColor="#AADDBB" VerticalOptions="Center"/>
+                                <Label x:Name="WhereTabLabel" Text="Where to Study"
+                                       FontSize="13" TextColor="#AADDBB" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Search bar -->
+                <Border BackgroundColor="White" StrokeThickness="0" Padding="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12"/>
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="Auto,*,Auto" Padding="12,0">
+                        <Label Text="&#xE8B6;" FontFamily="MaterialOutlined"
+                               FontSize="20" TextColor="#1A3C2E" VerticalOptions="Center"/>
+                        <Entry x:Name="SearchEntry" Grid.Column="1"
+                               Placeholder="Search..." PlaceholderColor="#AAAAAA"
+                               TextColor="#1A3C2E" FontSize="13" HeightRequest="46"
+                               BackgroundColor="Transparent" TextChanged="OnSearchChanged"/>
+                        <Label x:Name="ClearSearch" Grid.Column="2"
+                               Text="&#xE5CD;" FontFamily="MaterialOutlined"
+                               FontSize="20" TextColor="#AAAAAA"
+                               VerticalOptions="Center" IsVisible="False">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnClearSearch"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- FILTER CHIPS -->
+        <ScrollView Grid.Row="1" Orientation="Horizontal"
+                    HorizontalScrollBarVisibility="Never"
+                    BackgroundColor="White" Padding="16,12">
+            <HorizontalStackLayout x:Name="FilterChipsContainer" Spacing="8"/>
+        </ScrollView>
+
+        <!-- RESULTS COUNT -->
+        <Label x:Name="ResultsCount" Grid.Row="2"
+               FontSize="11" TextColor="#999999"
+               Margin="20,10,20,4"/>
+
+        <!-- LIST + BURSARIES -->
+        <ScrollView Grid.Row="3">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Career/Institution List -->
+                <CollectionView x:Name="ItemList"
+                                Margin="0,4,0,0"
+                                SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="White" StrokeThickness="0"
+                                    Margin="16,0" Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="14"/>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="#22000000" Offset="0,2" Radius="8" Opacity="0.08"/>
+                                </Border.Shadow>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnItemTapped" CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
+                                <Grid ColumnDefinitions="56,*,Auto" Padding="14,14">
+                                    <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44"
+                                            StrokeThickness="0" VerticalOptions="Center">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="12"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="&#xE865;" FontFamily="MaterialOutlined"
+                                               FontSize="22" TextColor="#1A3C2E"
+                                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" Spacing="3"
+                                                         VerticalOptions="Center" Margin="12,0">
+                                        <Label Text="{Binding DisplayTitle}"
+                                               FontSize="14" FontAttributes="Bold"
+                                               TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                                        <Label Text="{Binding DisplaySubtitle}"
+                                               FontSize="11" TextColor="#888888"/>
+                                        <Border BackgroundColor="#E8F5EE" StrokeThickness="0"
+                                                Padding="6,3" HorizontalOptions="Start"
+                                                IsVisible="{Binding HasBadge}">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="6"/>
+                                            </Border.StrokeShape>
+                                            <Label Text="{Binding BadgeText}"
+                                                   FontSize="10" FontAttributes="Bold"
+                                                   TextColor="#1A3C2E"/>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="2" Text="&#xE5CC;"
+                                           FontFamily="MaterialOutlined"
+                                           FontSize="20" TextColor="#CCCCCC"
+                                           VerticalOptions="Center"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <!-- Empty state -->
+                <VerticalStackLayout x:Name="EmptyState" IsVisible="False"
+                                     VerticalOptions="Center" HorizontalOptions="Center"
+                                     Spacing="12" Margin="0,60,0,0">
+                    <Label Text="&#xE865;" FontFamily="MaterialOutlined"
+                           FontSize="48" TextColor="#CCCCCC" HorizontalOptions="Center"/>
+                    <Label Text="No results found" FontSize="16" FontAttributes="Bold"
+                           TextColor="#AAAAAA" HorizontalOptions="Center"/>
+                    <Label Text="Try a different search or filter"
+                           FontSize="13" TextColor="#CCCCCC" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <!-- ═══════════════════════════════════════ -->
+                <!-- BURSARIES SECTION                       -->
+                <!-- ═══════════════════════════════════════ -->
+                <Label Text="💰 BURSARIES &amp; FUNDING"
+                       FontSize="11" FontAttributes="Bold"
+                       TextColor="#999999" CharacterSpacing="1.5"
+                       Margin="20,28,20,12"/>
+
+                <Label Text="Tap a bursary to see full details and how to apply"
+                       FontSize="12" TextColor="#AAAAAA"
+                       Margin="20,0,20,12"/>
+
+                <ScrollView Orientation="Horizontal"
+                            HorizontalScrollBarVisibility="Never"
+                            Padding="16,0,16,32">
+                    <HorizontalStackLayout x:Name="BursaryChips" Spacing="10"/>
+                </ScrollView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- DETAIL DRAWER                           -->
+        <!-- ═══════════════════════════════════════ -->
+        <Grid Grid.Row="0" Grid.RowSpan="4"
+              x:Name="DrawerOverlay" IsVisible="False">
+            <BoxView Color="#80000000" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseDrawer"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Grid x:Name="DrawerPanel"
+                  BackgroundColor="White"
+                  HorizontalOptions="End"
+                  VerticalOptions="Fill"
+                  WidthRequest="320"
+                  TranslationX="320"
+                  RowDefinitions="Auto,*">
+                <Grid Grid.Row="0" BackgroundColor="#1A3C2E" Padding="20,52,20,20">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Spacing="4">
+                            <Label x:Name="DrawerCategory" Text="Detail"
+                                   FontSize="11" TextColor="#AADDBB"
+                                   CharacterSpacing="1.2" FontAttributes="Bold"/>
+                            <Label x:Name="DrawerTitle" Text=""
+                                   FontSize="17" FontAttributes="Bold"
+                                   TextColor="White" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                        <Border Grid.Column="1" BackgroundColor="#2D5A40"
+                                WidthRequest="36" HeightRequest="36"
+                                StrokeThickness="0" VerticalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCloseDrawer"/>
+                            </Border.GestureRecognizers>
+                            <Label Text="&#xE5CD;" FontFamily="MaterialOutlined"
+                                   FontSize="18" TextColor="White"
+                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <ScrollView Grid.Row="1" BackgroundColor="White" Padding="20,20,20,40">
+                    <VerticalStackLayout x:Name="DrawerContent" Spacing="16"/>
+                </ScrollView>
+            </Grid>
+        </Grid>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- BURSARY MODAL                           -->
+        <!-- ═══════════════════════════════════════ -->
+        <Grid Grid.Row="0" Grid.RowSpan="4"
+              x:Name="BursaryOverlay" IsVisible="False">
+            <BoxView Color="#80000000" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseBursary"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+
+            <Border BackgroundColor="White" StrokeThickness="0"
+                    Margin="20,100,20,100" VerticalOptions="Center" Padding="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="#44000000" Offset="0,8" Radius="24" Opacity="0.3"/>
+                </Border.Shadow>
+                <Grid RowDefinitions="Auto,*,Auto">
+
+                    <!-- Modal header -->
+                    <Grid Grid.Row="0" BackgroundColor="#1A3C2E" Padding="20,20,20,20">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="💰 BURSARY" FontSize="10" TextColor="#AADDBB"
+                                       CharacterSpacing="1.2" FontAttributes="Bold"/>
+                                <Label x:Name="BursaryTitle" Text=""
+                                       FontSize="17" FontAttributes="Bold"
+                                       TextColor="White" LineBreakMode="WordWrap"/>
+                            </VerticalStackLayout>
+                            <Border Grid.Column="1" BackgroundColor="#2D5A40"
+                                    WidthRequest="36" HeightRequest="36"
+                                    StrokeThickness="0" VerticalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCloseBursary"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="&#xE5CD;" FontFamily="MaterialOutlined"
+                                       FontSize="18" TextColor="White"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                    <!-- Modal body -->
+                    <ScrollView Grid.Row="1" BackgroundColor="White"
+                                Padding="20,16,20,16" MaximumHeightRequest="320">
+                        <VerticalStackLayout Spacing="12">
+                            <Label x:Name="BursaryProvider"
+                                   FontSize="12" FontAttributes="Bold"
+                                   TextColor="#C8972B"/>
+                            <Label x:Name="BursaryDescription"
+                                   FontSize="13" TextColor="#555555"
+                                   LineBreakMode="WordWrap"/>
+                            <VerticalStackLayout x:Name="BursaryDetails" Spacing="10"/>
+                        </VerticalStackLayout>
+                    </ScrollView>
+
+                    <!-- Apply button -->
+                    <Border Grid.Row="2" BackgroundColor="#C8972B"
+                            StrokeThickness="0" Margin="20,0,20,20" HeightRequest="50">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnApplyBursary"/>
+                        </Border.GestureRecognizers>
+                        <Label Text="Apply Now →" FontSize="15" FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
 </ContentPage>

@@ -2,11 +2,511 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NCAP.Views.Dashboard.DashboardPage"
-             Title="DashboardPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F7F5">
+
+    <Grid RowDefinitions="*">
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- HEADER -->
+                <Grid BackgroundColor="#1A3C2E" Padding="20,52,20,24"
+                      RowDefinitions="Auto,Auto,Auto" RowSpacing="14">
+
+                    <!-- Logos + Icons row -->
+                    <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
+
+                        <HorizontalStackLayout Grid.Column="0" Spacing="12" VerticalOptions="Center">
+                            <Image Source="DHET_FC_logo.png" HeightRequest="30" Aspect="AspectFit">
+                                <SemanticProperties.Description>Department of Higher Education and Training logo</SemanticProperties.Description>
+                            </Image>
+                            <BoxView WidthRequest="1" HeightRequest="26" Color="#44FFFFFF" VerticalOptions="Center"/>
+                            <Image Source="khetha_logo.png" HeightRequest="30" Aspect="AspectFit">
+                                <SemanticProperties.Description>Khetha Career Development Services logo</SemanticProperties.Description>
+                            </Image>
+                        </HorizontalStackLayout>
+
+                        <!-- Notification + Settings icons -->
+                        <HorizontalStackLayout Grid.Column="2" Spacing="10" VerticalOptions="Center">
+
+                            <!-- Notification bell -->
+                            <Border BackgroundColor="#2D5A40" WidthRequest="40" HeightRequest="40"
+                                    StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnNotificationsTapped"/>
+                                </Border.GestureRecognizers>
+                                <SemanticProperties.Description>Notifications</SemanticProperties.Description>
+                                <Grid>
+                                    <Label Text="&#xE7F4;" FontFamily="MaterialOutlined"
+                                           FontSize="22" TextColor="White"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Border BackgroundColor="#E53935"
+                                            WidthRequest="10" HeightRequest="10"
+                                            StrokeThickness="1.5" Stroke="#1A3C2E"
+                                            HorizontalOptions="End" VerticalOptions="Start"
+                                            Margin="0,6,6,0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="5"/>
+                                        </Border.StrokeShape>
+                                    </Border>
+                                </Grid>
+                            </Border>
+
+                            <!-- Settings / Options icon -->
+                            <Border BackgroundColor="#2D5A40" WidthRequest="40" HeightRequest="40"
+                                    StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                                </Border.GestureRecognizers>
+                                <SemanticProperties.Description>Settings and feature toggles</SemanticProperties.Description>
+                                <Label Text="&#xE8B8;" FontFamily="MaterialOutlined"
+                                       FontSize="22" TextColor="White"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+
+                        </HorizontalStackLayout>
+                    </Grid>
+
+                    <!-- Greeting -->
+                    <VerticalStackLayout Grid.Row="1" Spacing="2">
+                        <Label x:Name="GreetingLabel" Text="Good morning 👋"
+                               FontSize="13" TextColor="#AADDBB"/>
+                        <Label x:Name="UserNameLabel" Text="Welcome back"
+                               FontSize="22" FontAttributes="Bold" TextColor="White">
+                            <SemanticProperties.HeadingLevel>Level1</SemanticProperties.HeadingLevel>
+                        </Label>
+                    </VerticalStackLayout>
+
+                    <!-- Search bar -->
+                    <Border Grid.Row="2" BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="Auto,*" Padding="14,0">
+                            <Label Text="&#xE8B6;" FontFamily="MaterialOutlined"
+                                   FontSize="20" TextColor="#1A3C2E" VerticalOptions="Center"/>
+                            <Entry Grid.Column="1"
+                                   Placeholder="Search careers, subjects, institutions..."
+                                   PlaceholderColor="#AAAAAA" TextColor="#1A3C2E"
+                                   FontSize="13" HeightRequest="48"
+                                   BackgroundColor="Transparent">
+                                <SemanticProperties.Description>Search box for careers, subjects and institutions</SemanticProperties.Description>
+                            </Entry>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+
+                <!-- QUOTE CARD -->
+                <Border BackgroundColor="#C8972B" StrokeThickness="0"
+                        Margin="16,20,16,0" Padding="20,18">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16"/>
+                    </Border.StrokeShape>
+                    <SemanticProperties.Description>Inspirational quote by Nelson Mandela</SemanticProperties.Description>
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="NELSON MANDELA" FontSize="10" FontAttributes="Bold"
+                               TextColor="#FFF3CD" CharacterSpacing="1.5"/>
+                        <Label Text="&quot;Education is the most powerful weapon which you can use to change the world.&quot;"
+                               FontSize="14" FontAttributes="Bold" TextColor="White"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- AI BANNER -->
+                <Border BackgroundColor="#0D2B1F" StrokeThickness="1" Stroke="#2D5A40"
+                        Margin="16,16,16,0" Padding="16,14">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="14"/>
+                    </Border.StrokeShape>
+                    <SemanticProperties.Description>This app is AI-powered. Khetha uses artificial intelligence to match you with the best careers.</SemanticProperties.Description>
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Border BackgroundColor="#1A3C2E" WidthRequest="40" HeightRequest="40"
+                                StrokeThickness="0" VerticalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
+                            <Label Text="&#xE90C;" FontFamily="MaterialOutlined"
+                                   FontSize="22" TextColor="#4CAF93"
+                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" Spacing="2"
+                                             VerticalOptions="Center" Margin="12,0">
+                            <HorizontalStackLayout Spacing="6">
+                                <Label Text="AI-Powered" FontSize="13" FontAttributes="Bold" TextColor="#4CAF93"/>
+                                <Border BackgroundColor="#4CAF93" Padding="6,2" StrokeThickness="0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="4"/>
+                                    </Border.StrokeShape>
+                                    <Label Text="BETA" FontSize="9" FontAttributes="Bold" TextColor="#0D2B1F"/>
+                                </Border>
+                            </HorizontalStackLayout>
+                            <Label Text="Khetha uses AI to match you with the best careers for your profile."
+                                   FontSize="11" TextColor="#AADDBB" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="✨" FontSize="20" VerticalOptions="Center"/>
+                    </Grid>
+                </Border>
+
+                <!-- WHERE DO YOU NEED HELP? -->
+                <Label Text="Where do you need help?" FontSize="16" FontAttributes="Bold"
+                       TextColor="#1A3C2E" Margin="16,24,16,12">
+                    <SemanticProperties.HeadingLevel>Level2</SemanticProperties.HeadingLevel>
+                </Label>
+
+                <VerticalStackLayout Margin="16,0,16,0" Spacing="10">
+
+                    <Border BackgroundColor="#1A3C2E" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#441A3C2E" Offset="0,4" Radius="12" Opacity="0.2"/>
+                        </Border.Shadow>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnExploreTapped"/>
+                        </Border.GestureRecognizers>
+                        <SemanticProperties.Description>Explore Careers. Browse over 1500 occupations. Double tap to open.</SemanticProperties.Description>
+                        <Grid ColumnDefinitions="56,*,32" Padding="16,16">
+                            <Border BackgroundColor="#2D5A40" WidthRequest="42" HeightRequest="42"
+                                    StrokeThickness="0" VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8B6;" FontFamily="MaterialOutlined"
+                                       FontSize="22" TextColor="White"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                <Label Text="Explore Careers" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="Browse 1,500+ occupations and career paths" FontSize="12" TextColor="#AADDBB"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="&#xE5CC;" FontFamily="MaterialOutlined"
+                                   FontSize="20" TextColor="#AADDBB" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <Border BackgroundColor="#C8972B" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#44C8972B" Offset="0,4" Radius="12" Opacity="0.2"/>
+                        </Border.Shadow>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGuideTapped"/>
+                        </Border.GestureRecognizers>
+                        <SemanticProperties.Description>Career Guide. Quizzes, Subject Chooser and AI career advice. Double tap to open.</SemanticProperties.Description>
+                        <Grid ColumnDefinitions="56,*,32" Padding="16,16">
+                            <Border BackgroundColor="#B8872B" WidthRequest="42" HeightRequest="42"
+                                    StrokeThickness="0" VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8D4;" FontFamily="MaterialOutlined"
+                                       FontSize="22" TextColor="White"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                <Label Text="Career Guide" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="Quizzes, Subject Chooser &amp; AI career advice" FontSize="12" TextColor="#FFF3CD"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="&#xE5CC;" FontFamily="MaterialOutlined"
+                                   FontSize="20" TextColor="#FFF3CD" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        </Grid>
+                    </Border>
+
+                </VerticalStackLayout>
+
+                <!-- EXPLORE DIRECTORIES -->
+                <Label Text="Explore Directories" FontSize="16" FontAttributes="Bold"
+                       TextColor="#1A3C2E" Margin="16,28,16,12">
+                    <SemanticProperties.HeadingLevel>Level2</SemanticProperties.HeadingLevel>
+                </Label>
+
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+                      ColumnSpacing="10" RowSpacing="10" Margin="16,0,16,32">
+
+                    <Border Grid.Row="0" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <SemanticProperties.Description>Careers directory. Browse occupations and salaries.</SemanticProperties.Description>
+                        <VerticalStackLayout Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44" StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8E5;" FontFamily="MaterialOutlined" FontSize="24" TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Careers" FontSize="14" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label Text="Browse occupations &amp; salaries" FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <SemanticProperties.Description>Where to Study. Find universities and TVET colleges.</SemanticProperties.Description>
+                        <VerticalStackLayout Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44" StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE80C;" FontFamily="MaterialOutlined" FontSize="24" TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Where to Study" FontSize="14" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label Text="Universities &amp; TVET colleges" FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <SemanticProperties.Description>What to Study. Browse qualifications and programmes.</SemanticProperties.Description>
+                        <VerticalStackLayout Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44" StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE865;" FontFamily="MaterialOutlined" FontSize="24" TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="What to Study" FontSize="14" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label Text="Qualifications &amp; programmes" FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.10"/>
+                        </Border.Shadow>
+                        <SemanticProperties.Description>Green Careers. Explore eco and sustainability career paths.</SemanticProperties.Description>
+                        <VerticalStackLayout Spacing="10">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="44" HeightRequest="44" StrokeThickness="0" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8E5;" FontFamily="MaterialOutlined" FontSize="24" TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Green Careers" FontSize="14" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label Text="Eco &amp; sustainability paths" FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- SETTINGS MODAL -->
+        <Grid x:Name="SettingsOverlay" IsVisible="False" ZIndex="10">
+            <BoxView Color="#80000000" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseSettings"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+
+            <Border BackgroundColor="White" StrokeThickness="0"
+                    VerticalOptions="End" Margin="0" Padding="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24,24,0,0"/>
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="#44000000" Offset="0,-4" Radius="20" Opacity="0.2"/>
+                </Border.Shadow>
+
+                <VerticalStackLayout Spacing="0">
+
+                    <!-- Handle -->
+                    <BoxView WidthRequest="40" HeightRequest="4" Color="#E0E0E0"
+                             CornerRadius="2" HorizontalOptions="Center" Margin="0,14,0,0"/>
+
+                    <!-- Header -->
+                    <Grid Padding="20,16,20,16">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Settings &amp; Features" FontSize="18"
+                                   FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label Text="Customise your Khetha experience"
+                                   FontSize="12" TextColor="#888888"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="#F0F0F0"/>
+
+                    <!-- Toggle rows -->
+                    <VerticalStackLayout Padding="20,8,20,8" Spacing="0">
+
+                        <!-- Notifications -->
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="0,14">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="40" HeightRequest="40"
+                                    StrokeThickness="0" VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE7F4;" FontFamily="MaterialOutlined"
+                                       FontSize="22" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2"
+                                                 VerticalOptions="Center" Margin="14,0">
+                                <Label Text="Notifications" FontSize="14"
+                                       FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                <Label Text="Career tips, bursary deadlines &amp; events"
+                                       FontSize="11" TextColor="#888888"/>
+                            </VerticalStackLayout>
+                            <Switch x:Name="NotificationsToggle" Grid.Column="2"
+                                    IsToggled="True" OnColor="#1A3C2E"
+                                    VerticalOptions="Center"
+                                    Toggled="OnNotificationsToggled"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="#F5F5F5"/>
+
+                        <!-- Offline Mode --><!--
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="0,14">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="40" HeightRequest="40"
+                                    StrokeThickness="0" VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE648;" FontFamily="MaterialOutlined"
+                                       FontSize="22" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2"
+                                                 VerticalOptions="Center" Margin="14,0">
+                                <Label Text="Offline Mode" FontSize="14"
+                                       FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                <Label Text="Use app without internet connection"
+                                       FontSize="11" TextColor="#888888"/>
+                            </VerticalStackLayout>
+                            <Switch x:Name="OfflineToggle" Grid.Column="2"
+                                    IsToggled="True" OnColor="#1A3C2E"
+                                    VerticalOptions="Center"
+                                    Toggled="OnOfflineToggled"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="#F5F5F5"/>-->
+
+                        <!-- Large Text -->
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="0,14">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="40" HeightRequest="40"
+                                    StrokeThickness="0" VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE245;" FontFamily="MaterialOutlined"
+                                       FontSize="22" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2"
+                                                 VerticalOptions="Center" Margin="14,0">
+                                <Label Text="Large Text" FontSize="14"
+                                       FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                <Label Text="Increase text size for easier reading"
+                                       FontSize="11" TextColor="#888888"/>
+                            </VerticalStackLayout>
+                            <Switch x:Name="LargeTextToggle" Grid.Column="2"
+                                    IsToggled="False" OnColor="#1A3C2E"
+                                    VerticalOptions="Center"
+                                    Toggled="OnLargeTextToggled"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="#F5F5F5"/>
+
+                        <!-- High Contrast -->
+                        <BoxView HeightRequest="1" Color="#F5F5F5"/>
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="0,14">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="40" HeightRequest="40"
+            StrokeThickness="0" VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE41C;" FontFamily="MaterialOutlined"
+               FontSize="22" TextColor="#1A3C2E"
+               HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2"
+                         VerticalOptions="Center" Margin="14,0">
+                                <Label Text="High Contrast" FontSize="14"
+               FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                <Label Text="Stronger colours for easier visibility"
+               FontSize="11" TextColor="#888888"/>
+                            </VerticalStackLayout>
+                            <Switch x:Name="HighContrastToggle" Grid.Column="2"
+            IsToggled="False" OnColor="#1A3C2E"
+            VerticalOptions="Center"
+            Toggled="OnHighContrastToggled"/>
+                        </Grid>
+
+                        <!-- Language -->
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="0,14">
+                            <Border BackgroundColor="#E8F5EE" WidthRequest="40" HeightRequest="40"
+                                    StrokeThickness="0" VerticalOptions="Center">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Label Text="&#xE8C4;" FontFamily="MaterialOutlined"
+                                       FontSize="22" TextColor="#1A3C2E"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="2"
+                                                 VerticalOptions="Center" Margin="14,0">
+                                <Label Text="Language" FontSize="14"
+                                       FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                <Label x:Name="CurrentLanguageLabel"
+                                       Text="English" FontSize="11" TextColor="#888888"/>
+                            </VerticalStackLayout>
+                            <Border Grid.Column="2" BackgroundColor="#F5F7F5"
+                                    StrokeThickness="0" Padding="12,8">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="8"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLanguageTapped"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="Change →" FontSize="12"
+                                       FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            </Border>
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                    <!-- Close button -->
+                    <Border BackgroundColor="#1A3C2E" StrokeThickness="0"
+                            Margin="20,8,20,40" HeightRequest="50">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCloseSettings"/>
+                        </Border.GestureRecognizers>
+                        <Label Text="Done" FontSize="15" FontAttributes="Bold"
+                               TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+    </Grid>
+
 </ContentPage>

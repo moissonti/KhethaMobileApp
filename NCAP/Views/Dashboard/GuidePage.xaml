@@ -2,11 +2,752 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NCAP.Views.Dashboard.GuidePage"
-             Title="GuidePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F7F5">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <!-- COMPACT HEADER -->
+        <Grid Grid.Row="0" BackgroundColor="#1A3C2E" Padding="20,48,20,16">
+            <Grid ColumnDefinitions="*,Auto">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="Career Guide" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Your personalised development hub" FontSize="11" TextColor="#AADDBB"/>
+                </VerticalStackLayout>
+                <Border Grid.Column="1" BackgroundColor="#2D5A40"
+                        StrokeThickness="0" Padding="10,6" VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8"/>
+                    </Border.StrokeShape>
+                    <Label Text="✨ AI-Powered" FontSize="10" FontAttributes="Bold" TextColor="#4CAF93"/>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- TAB TOGGLE -->
+        <Grid Grid.Row="1" BackgroundColor="White" Padding="16,10,16,10">
+            <Border BackgroundColor="#F0F2F0" StrokeThickness="0" Padding="3">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="12"/>
+                </Border.StrokeShape>
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="0">
+                    <Border x:Name="TabRoadmap" BackgroundColor="#1A3C2E"
+                            StrokeThickness="0" HeightRequest="38">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTabRoadmap"/>
+                        </Border.GestureRecognizers>
+                        <Label x:Name="LblRoadmap" Text="Roadmap" FontSize="12"
+                               FontAttributes="Bold" TextColor="White"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <Border x:Name="TabQuiz" Grid.Column="1"
+                            BackgroundColor="Transparent" StrokeThickness="0" HeightRequest="38">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTabQuiz"/>
+                        </Border.GestureRecognizers>
+                        <Label x:Name="LblQuiz" Text="Quiz" FontSize="12"
+                               TextColor="#888888"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <Border x:Name="TabSubjects" Grid.Column="2"
+                            BackgroundColor="Transparent" StrokeThickness="0" HeightRequest="38">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTabSubjects"/>
+                        </Border.GestureRecognizers>
+                        <Label x:Name="LblSubjects" Text="Subjects" FontSize="12"
+                               TextColor="#888888"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- TAB CONTENT -->
+        <Grid Grid.Row="2">
+
+            <!-- ══════════════════════════════ -->
+            <!-- TAB 1: ROADMAP                 -->
+            <!-- ══════════════════════════════ -->
+            <ScrollView x:Name="RoadmapView" BackgroundColor="#F5F7F5">
+                <VerticalStackLayout Padding="16,14,16,100" Spacing="14">
+
+                    <!-- Career header -->
+                    <Border BackgroundColor="#1A3C2E" StrokeThickness="0" Padding="18,16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="10">
+                            <Border BackgroundColor="#2D5A40" StrokeThickness="0"
+                                    Padding="8,4" HorizontalOptions="Start">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="6"/>
+                                </Border.StrokeShape>
+                                <Label Text="MY ROADMAP" FontSize="9" FontAttributes="Bold"
+                                       TextColor="#AADDBB" CharacterSpacing="1.2"/>
+                            </Border>
+                            <Label Text="Software Developer" FontSize="22"
+                                   FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="OFO Code: 251201 · IT Professionals"
+                                   FontSize="11" TextColor="#AADDBB"/>
+                            <Grid ColumnDefinitions="*,Auto" Margin="0,4,0,0">
+                                <Grid>
+                                    <BoxView HeightRequest="7" Color="#2D5A40" CornerRadius="4"/>
+                                    <BoxView HeightRequest="7" Color="#C8972B" CornerRadius="4"
+                                             HorizontalOptions="Start" WidthRequest="120"/>
+                                </Grid>
+                                <Label Grid.Column="1" Text="35%" FontSize="13"
+                                       FontAttributes="Bold" TextColor="#C8972B"
+                                       VerticalOptions="Center" Margin="10,0,0,0"/>
+                            </Grid>
+                            <Label Text="Step 2 of 5 · Choose Your Study Path"
+                                   FontSize="11" TextColor="#AADDBB"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Next step -->
+                    <Border BackgroundColor="#C8972B" StrokeThickness="0" Padding="18,16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="YOUR NEXT STEP" FontSize="9" FontAttributes="Bold"
+                                   TextColor="#FFF3CD" CharacterSpacing="1.5"/>
+                            <Label Text="Enrol in BSc Computer Science"
+                                   FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="UCT, Wits, UP and UJ all offer BSc CS. NSFAS funding available for qualifying students."
+                                   FontSize="12" TextColor="#FFF3CD" LineBreakMode="WordWrap"/>
+                            <Border BackgroundColor="White" StrokeThickness="0"
+                                    Padding="14,8" HorizontalOptions="Start" Margin="0,4,0,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="8"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnExploreStudy"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="Find Universities →" FontSize="12"
+                                       FontAttributes="Bold" TextColor="#C8972B"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Stages -->
+                    <Label Text="Roadmap Stages" FontSize="15" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                    <Border BackgroundColor="White" StrokeThickness="0" Padding="4,8">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="0">
+
+                            <Grid ColumnDefinitions="52,*" Padding="14,12">
+                                <Border BackgroundColor="#1A3C2E" WidthRequest="32" HeightRequest="32"
+                                        StrokeThickness="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="16"/>
+                                    </Border.StrokeShape>
+                                    <Label Text="&#xE876;" FontFamily="MaterialOutlined" FontSize="16"
+                                           TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                    <Label Text="Understand Your Career" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="Career exploration · Completed" FontSize="11" TextColor="#4CAF93"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#F5F5F5" Margin="14,0"/>
+
+                            <Grid ColumnDefinitions="52,*" Padding="14,12">
+                                <Border BackgroundColor="#C8972B" WidthRequest="32" HeightRequest="32"
+                                        StrokeThickness="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="16"/>
+                                    </Border.StrokeShape>
+                                    <Label Text="2" FontSize="13" FontAttributes="Bold"
+                                           TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                    <Label Text="Choose Your Study Path" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="Qualifications &amp; providers · In progress" FontSize="11" TextColor="#C8972B"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#F5F5F5" Margin="14,0"/>
+
+                            <Grid ColumnDefinitions="52,*" Padding="14,12">
+                                <Border BackgroundColor="#E0E0E0" WidthRequest="32" HeightRequest="32"
+                                        StrokeThickness="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="16"/>
+                                    </Border.StrokeShape>
+                                    <Label Text="3" FontSize="13" FontAttributes="Bold"
+                                           TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                    <Label Text="Build Your Skills" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="Skills development · Up next" FontSize="11" TextColor="#AAAAAA"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#F5F5F5" Margin="14,0"/>
+
+                            <Grid ColumnDefinitions="52,*" Padding="14,12">
+                                <Border BackgroundColor="#E0E0E0" WidthRequest="32" HeightRequest="32"
+                                        StrokeThickness="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="16"/>
+                                    </Border.StrokeShape>
+                                    <Label Text="4" FontSize="13" FontAttributes="Bold"
+                                           TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                    <Label Text="Gain Practical Experience" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="Internships, projects, volunteering" FontSize="11" TextColor="#AAAAAA"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#F5F5F5" Margin="14,0"/>
+
+                            <Grid ColumnDefinitions="52,*" Padding="14,12">
+                                <Border BackgroundColor="#E0E0E0" WidthRequest="32" HeightRequest="32"
+                                        StrokeThickness="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="16"/>
+                                    </Border.StrokeShape>
+                                    <Label Text="5" FontSize="13" FontAttributes="Bold"
+                                           TextColor="#999999" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                    <Label Text="Build Portfolio &amp; CV" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="Evidence, achievements &amp; career prep" FontSize="11" TextColor="#AAAAAA"/>
+                                </VerticalStackLayout>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Skills gap -->
+                    <Label Text="Skills Gap Analysis" FontSize="15" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                    <Border BackgroundColor="White" StrokeThickness="0" Padding="18,16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="18">
+
+                            <VerticalStackLayout Spacing="6">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Python" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Border Grid.Column="1" BackgroundColor="#E8F5EE" StrokeThickness="1" Stroke="#1A3C2E" Padding="10,4">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="6"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="Mark done" FontSize="10" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    </Border>
+                                </Grid>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="Beginner" FontSize="11" TextColor="#888888"/>
+                                    <Label Text="→" FontSize="11" TextColor="#C8972B"/>
+                                    <Label Text="Intermediate" FontSize="11" TextColor="#C8972B" FontAttributes="Bold"/>
+                                </HorizontalStackLayout>
+                                <Grid>
+                                    <BoxView HeightRequest="6" Color="#F0F0F0" CornerRadius="3"/>
+                                    <BoxView HeightRequest="6" Color="#C8972B" CornerRadius="3" HorizontalOptions="Start" WidthRequest="180"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                            <BoxView HeightRequest="1" Color="#F5F5F5"/>
+
+                            <VerticalStackLayout Spacing="6">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="SQL / Databases" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Border Grid.Column="1" BackgroundColor="#E8F5EE" StrokeThickness="1" Stroke="#1A3C2E" Padding="10,4">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="6"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="Mark done" FontSize="10" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    </Border>
+                                </Grid>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="None" FontSize="11" TextColor="#888888"/>
+                                    <Label Text="→" FontSize="11" TextColor="#C8972B"/>
+                                    <Label Text="Beginner" FontSize="11" TextColor="#C8972B" FontAttributes="Bold"/>
+                                </HorizontalStackLayout>
+                                <Grid>
+                                    <BoxView HeightRequest="6" Color="#F0F0F0" CornerRadius="3"/>
+                                    <BoxView HeightRequest="6" Color="#C8972B" CornerRadius="3" HorizontalOptions="Start" WidthRequest="40"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                            <BoxView HeightRequest="1" Color="#F5F5F5"/>
+
+                            <VerticalStackLayout Spacing="6">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Git &amp; Version Control" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Border Grid.Column="1" BackgroundColor="#E8F5EE" StrokeThickness="1" Stroke="#1A3C2E" Padding="10,4">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="6"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="Mark done" FontSize="10" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    </Border>
+                                </Grid>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="None" FontSize="11" TextColor="#888888"/>
+                                    <Label Text="→" FontSize="11" TextColor="#C8972B"/>
+                                    <Label Text="Beginner" FontSize="11" TextColor="#C8972B" FontAttributes="Bold"/>
+                                </HorizontalStackLayout>
+                                <Grid>
+                                    <BoxView HeightRequest="6" Color="#F0F0F0" CornerRadius="3"/>
+                                    <BoxView HeightRequest="6" Color="#C8972B" CornerRadius="3" HorizontalOptions="Start" WidthRequest="60"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                            <BoxView HeightRequest="1" Color="#F5F5F5"/>
+
+                            <VerticalStackLayout Spacing="6">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Web Development" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Border Grid.Column="1" BackgroundColor="#E8F5EE" StrokeThickness="1" Stroke="#1A3C2E" Padding="10,4">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="6"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="Mark done" FontSize="10" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    </Border>
+                                </Grid>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="Basic" FontSize="11" TextColor="#888888"/>
+                                    <Label Text="→" FontSize="11" TextColor="#C8972B"/>
+                                    <Label Text="Intermediate" FontSize="11" TextColor="#C8972B" FontAttributes="Bold"/>
+                                </HorizontalStackLayout>
+                                <Grid>
+                                    <BoxView HeightRequest="6" Color="#F0F0F0" CornerRadius="3"/>
+                                    <BoxView HeightRequest="6" Color="#C8972B" CornerRadius="3" HorizontalOptions="Start" WidthRequest="130"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                            <BoxView HeightRequest="1" Color="#F5F5F5"/>
+
+                            <VerticalStackLayout Spacing="6">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Problem Solving" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Border Grid.Column="1" BackgroundColor="#E8F5EE" StrokeThickness="1" Stroke="#1A3C2E" Padding="10,4">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="6"/>
+                                        </Border.StrokeShape>
+                                        <Label Text="Mark done" FontSize="10" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    </Border>
+                                </Grid>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="Developing" FontSize="11" TextColor="#888888"/>
+                                    <Label Text="→" FontSize="11" TextColor="#C8972B"/>
+                                    <Label Text="Intermediate" FontSize="11" TextColor="#C8972B" FontAttributes="Bold"/>
+                                </HorizontalStackLayout>
+                                <Grid>
+                                    <BoxView HeightRequest="6" Color="#F0F0F0" CornerRadius="3"/>
+                                    <BoxView HeightRequest="6" Color="#C8972B" CornerRadius="3" HorizontalOptions="Start" WidthRequest="150"/>
+                                </Grid>
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Alternative pathways -->
+                    <Label Text="Alternative Pathways" FontSize="15" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                    <Border BackgroundColor="White" StrokeThickness="0" Padding="18,16">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="0">
+                            <Label Text="Multiple routes exist to reach your goal:"
+                                   FontSize="12" TextColor="#C8972B" FontAttributes="Bold" Margin="0,0,0,14"/>
+
+                            <Grid ColumnDefinitions="14,*" Padding="0,0,0,12">
+                                <BoxView WidthRequest="10" HeightRequest="10" Color="#1A3C2E"
+                                         CornerRadius="5" VerticalOptions="Start" Margin="0,3,0,0"/>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label Text="University" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="BSc Computer Science · NQF 7 · 3 years" FontSize="11" TextColor="#888888"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#F5F5F5" Margin="0,0,0,12"/>
+
+                            <Grid ColumnDefinitions="14,*" Padding="0,0,0,12">
+                                <BoxView WidthRequest="10" HeightRequest="10" Color="#C8972B"
+                                         CornerRadius="5" VerticalOptions="Start" Margin="0,3,0,0"/>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label Text="TVET College" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="NC: IT Support · NQF 5 → upgrade pathway" FontSize="11" TextColor="#888888"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#F5F5F5" Margin="0,0,0,12"/>
+
+                            <Grid ColumnDefinitions="14,*">
+                                <BoxView WidthRequest="10" HeightRequest="10" Color="#1565C0"
+                                         CornerRadius="5" VerticalOptions="Start" Margin="0,3,0,0"/>
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label Text="Short Courses" FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                    <Label Text="Online certifications + portfolio projects" FontSize="11" TextColor="#888888"/>
+                                </VerticalStackLayout>
+                            </Grid>
+
+                            <Border BackgroundColor="#F5F7F5" StrokeThickness="0" Padding="14,10" Margin="0,16,0,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnExploreStudy"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="Explore Where to Study →" FontSize="13"
+                                       FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <!-- ══════════════════════════════ -->
+            <!-- TAB 2: QUIZ                    -->
+            <!-- ══════════════════════════════ -->
+            <ScrollView x:Name="QuizView" IsVisible="False" BackgroundColor="#F5F7F5">
+                <VerticalStackLayout Padding="16,14,16,100" Spacing="14">
+
+                    <Border x:Name="QuizResultsCard" BackgroundColor="White"
+                            StrokeThickness="0" Padding="18,16" IsVisible="False">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="14">
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="&#xE876;" FontFamily="MaterialOutlined"
+                                       FontSize="20" TextColor="#4CAF93" VerticalOptions="Center"/>
+                                <Label Text="Assessment Complete" FontSize="15"
+                                       FontAttributes="Bold" TextColor="#1A3C2E" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <Label Text="Your matched careers based on your interests:"
+                                   FontSize="12" TextColor="#888888"/>
+                            <VerticalStackLayout x:Name="MatchedCareersContainer" Spacing="10"/>
+                            <Border BackgroundColor="#F5F7F5" StrokeThickness="0" Padding="14,10">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnRetakeQuiz"/>
+                                </Border.GestureRecognizers>
+                                <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                                    <Label Text="&#xE8D5;" FontFamily="MaterialOutlined"
+                                           FontSize="16" TextColor="#1A3C2E" VerticalOptions="Center"/>
+                                    <Label Text="Retake Assessment" FontSize="13"
+                                           FontAttributes="Bold" TextColor="#1A3C2E" VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Label Text="Career Assessments" FontSize="18" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                    <Label Text="Complete a quiz to discover careers that match your strengths and interests."
+                           FontSize="13" TextColor="#888888" LineBreakMode="WordWrap"/>
+
+                    <!-- Career Choice -->
+                    <Border BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="0">
+                            <Grid BackgroundColor="#1A3C2E" Padding="18,16">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="CAREER CHOICE QUIZ" FontSize="9" TextColor="#AADDBB"
+                                           CharacterSpacing="1.5" FontAttributes="Bold"/>
+                                    <Label Text="Discover your ideal career path"
+                                           FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text="15 questions · Interest-based · ~3 minutes"
+                                           FontSize="11" TextColor="#AADDBB"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <VerticalStackLayout Padding="18,14" Spacing="12">
+                                <Label Text="Answer 15 questions about what you enjoy. Our system matches your answers to real SA careers with OFO codes."
+                                       FontSize="13" TextColor="#555555" LineBreakMode="WordWrap"/>
+                                <Border BackgroundColor="#1A3C2E" StrokeThickness="0" HeightRequest="46">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="12"/>
+                                    </Border.StrokeShape>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnStartCareerQuiz"/>
+                                    </Border.GestureRecognizers>
+                                    <Label Text="Start Career Choice Quiz" FontSize="14"
+                                           FontAttributes="Bold" TextColor="White"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Job Fit -->
+                    <Border BackgroundColor="White" StrokeThickness="0" Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="0">
+                            <Grid BackgroundColor="#C8972B" Padding="18,16">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="JOB FIT ASSESSMENT" FontSize="9" TextColor="#FFF3CD"
+                                           CharacterSpacing="1.5" FontAttributes="Bold"/>
+                                    <Label Text="Find roles that match your personality"
+                                           FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text="15 questions · Skills-based · ~2 minutes"
+                                           FontSize="11" TextColor="#FFF3CD"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <VerticalStackLayout Padding="18,14" Spacing="12">
+                                <Label Text="Identify skills from your life experience and see which career fields match your strengths."
+                                       FontSize="13" TextColor="#555555" LineBreakMode="WordWrap"/>
+                                <Border BackgroundColor="#C8972B" StrokeThickness="0" HeightRequest="46">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="12"/>
+                                    </Border.StrokeShape>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnStartJobFit"/>
+                                    </Border.GestureRecognizers>
+                                    <Label Text="Start Job Fit Assessment" FontSize="14"
+                                           FontAttributes="Bold" TextColor="White"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <!-- ══════════════════════════════ -->
+            <!-- TAB 3: SUBJECTS               -->
+            <!-- ══════════════════════════════ -->
+            <ScrollView x:Name="SubjectsView" IsVisible="False" BackgroundColor="#F5F7F5">
+                <VerticalStackLayout Padding="16,14,16,100" Spacing="14">
+
+                    <!-- Mode toggle -->
+                    <Border BackgroundColor="White" StrokeThickness="0" Padding="4">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="0">
+                            <Border x:Name="ModeSubjectToCareer" BackgroundColor="#1A3C2E"
+                                    StrokeThickness="0" HeightRequest="36">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnModeSubjectToCareer"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="Subjects → Careers" FontSize="12" FontAttributes="Bold"
+                                       TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Border x:Name="ModeCareerToSubject" Grid.Column="1"
+                                    BackgroundColor="Transparent" StrokeThickness="0" HeightRequest="36">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnModeCareerToSubject"/>
+                                </Border.GestureRecognizers>
+                                <Label x:Name="LblCareerMode" Text="Career → Subjects" FontSize="12"
+                                       TextColor="#888888" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <!-- SUBJECTS → CAREERS -->
+                    <VerticalStackLayout x:Name="SubjectPickerView" Spacing="14">
+                        <Label Text="Select your subjects" FontSize="15" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        <Label Text="Tap to select · Results update instantly"
+                               FontSize="12" TextColor="#888888"/>
+
+                        <!-- Subject buttons built in code-behind -->
+                        <FlexLayout x:Name="SubjectFlexLayout"
+                                    Wrap="Wrap"
+                                    JustifyContent="Start"
+                                    AlignItems="Start"
+                                    AlignContent="Start"/>
+
+                        <!-- Results -->
+                        <Border x:Name="SubjectResultCard" BackgroundColor="White"
+                                StrokeThickness="0" Padding="18,16" IsVisible="False">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="16"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="#22000000" Offset="0,2" Radius="10" Opacity="0.08"/>
+                            </Border.Shadow>
+                            <VerticalStackLayout Spacing="12">
+                                <Label x:Name="SubjectResultTitle" FontSize="14"
+                                       FontAttributes="Bold" TextColor="#1A3C2E"/>
+                                <VerticalStackLayout x:Name="SubjectResultContent" Spacing="8"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- CAREER → SUBJECTS -->
+                    <VerticalStackLayout x:Name="CareerPickerView" IsVisible="False" Spacing="14">
+                        <Label Text="Select a career to see required subjects"
+                               FontSize="15" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                        <VerticalStackLayout x:Name="CareerSubjectList" Spacing="10"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+        </Grid>
+
+        <!-- TAWK.TO CHAT MODAL -->
+        <Grid Grid.Row="0" Grid.RowSpan="3"
+      x:Name="ChatModal" IsVisible="False" ZIndex="20">
+            <BoxView Color="#80000000" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseChat"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Border BackgroundColor="White" StrokeThickness="0"
+            Margin="0,80,0,0" VerticalOptions="Fill">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,0,0"/>
+                </Border.StrokeShape>
+                <Grid RowDefinitions="Auto,*">
+                    <!-- Chat header -->
+                    <Grid Grid.Row="0" BackgroundColor="#1A3C2E" Padding="20,16,20,16">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="💬 Khetha Career Advisor"
+                               FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="Live support · Mon–Fri 08:00–16:30"
+                               FontSize="11" TextColor="#AADDBB"/>
+                            </VerticalStackLayout>
+                            <Border Grid.Column="1" BackgroundColor="#2D5A40"
+                            WidthRequest="36" HeightRequest="36" StrokeThickness="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10"/>
+                                </Border.StrokeShape>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCloseChat"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="&#xE5CD;" FontFamily="MaterialOutlined"
+                               FontSize="18" TextColor="White"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    <!-- WebView -->
+                    <WebView Grid.Row="1"
+                     x:Name="ChatWebView"
+                     Source="https://tawk.to/chat/6aada9ef44c40a343ef893c2/1k2r5vkq9"
+                     BackgroundColor="White"/>
+                </Grid>
+            </Border>
+        </Grid>
+        
+        <!-- QUIZ MODAL -->
+        <Grid Grid.Row="0" Grid.RowSpan="3"
+              x:Name="QuizModal" IsVisible="False" BackgroundColor="#F5F7F5"
+              RowDefinitions="Auto,*,Auto">
+
+            <Grid Grid.Row="0" BackgroundColor="#1A3C2E" Padding="20,52,20,16">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="2">
+                        <Label x:Name="QuizModalTitle" Text="Career Choice Quiz"
+                               FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                        <Label x:Name="QuizModalSubtitle" Text="15 questions · Interest-based"
+                               FontSize="11" TextColor="#AADDBB"/>
+                    </VerticalStackLayout>
+                    <Border Grid.Column="1" BackgroundColor="#2D5A40"
+                            WidthRequest="36" HeightRequest="36" StrokeThickness="0" VerticalOptions="Start">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCloseQuiz"/>
+                        </Border.GestureRecognizers>
+                        <Label Text="&#xE5CD;" FontFamily="MaterialOutlined" FontSize="18"
+                               TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <VerticalStackLayout Grid.Row="1" Padding="20,20,20,0" Spacing="20">
+                <Grid>
+                    <BoxView HeightRequest="6" Color="#E0E0E0" CornerRadius="3"/>
+                    <BoxView x:Name="ModalProgressBar" HeightRequest="6" Color="#1A3C2E"
+                             CornerRadius="3" HorizontalOptions="Start" WidthRequest="20"/>
+                </Grid>
+                <Label x:Name="ModalQuestionCounter" Text="Question 1 of 15"
+                       FontSize="11" TextColor="#999999" HorizontalOptions="Center"/>
+
+                <Border BackgroundColor="White" StrokeThickness="0" MinimumHeightRequest="160">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#22000000" Offset="0,4" Radius="16" Opacity="0.10"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout Padding="24,28" Spacing="16" VerticalOptions="Center">
+                        <Border BackgroundColor="#E8F5EE" WidthRequest="48" HeightRequest="48"
+                                StrokeThickness="0" HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="13"/>
+                            </Border.StrokeShape>
+                            <Label Text="&#xE8F8;" FontFamily="MaterialOutlined" FontSize="26"
+                                   TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                        <Label x:Name="ModalQuestionText" Text=""
+                               FontSize="16" FontAttributes="Bold" TextColor="#1A3C2E"
+                               HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                    <Border Grid.Column="0" BackgroundColor="#FFEBEE" StrokeThickness="0" HeightRequest="52">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnModalAnswerNo"/>
+                        </Border.GestureRecognizers>
+                        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                            <Label Text="&#xE5CD;" FontFamily="MaterialOutlined"
+                                   FontSize="18" TextColor="#D32F2F" VerticalOptions="Center"/>
+                            <Label Text="No" FontSize="15" FontAttributes="Bold"
+                                   TextColor="#D32F2F" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Border>
+                    <Border Grid.Column="1" BackgroundColor="#E8F5EE" StrokeThickness="0" HeightRequest="52">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14"/>
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnModalAnswerYes"/>
+                        </Border.GestureRecognizers>
+                        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                            <Label Text="&#xE876;" FontFamily="MaterialOutlined"
+                                   FontSize="18" TextColor="#1A3C2E" VerticalOptions="Center"/>
+                            <Label Text="Yes" FontSize="15" FontAttributes="Bold"
+                                   TextColor="#1A3C2E" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Border>
+                </Grid>
+            </VerticalStackLayout>
+
+            <Border Grid.Row="2" BackgroundColor="Transparent" StrokeThickness="0" Padding="20,12,20,32">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseQuiz"/>
+                </Border.GestureRecognizers>
+                <Label Text="Skip for now" FontSize="13" TextColor="#AAAAAA" HorizontalOptions="Center"/>
+            </Border>
+        </Grid>
+
+    </Grid>
 </ContentPage>

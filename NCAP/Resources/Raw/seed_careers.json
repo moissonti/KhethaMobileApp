@@ -1,0 +1,222 @@
+[
+  {
+    "occupation_code": "251201",
+    "title": "Software Developer",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Designs, develops, tests, and maintains software applications and systems using programming languages and development tools.",
+    "tasks": ["Write and test clean, efficient code", "Debug and resolve software issues", "Collaborate with teams using agile methods", "Design software architecture and databases", "Deploy and maintain applications in production"],
+    "learning_pathways": ["BSc Computer Science", "BIT Information Technology", "National Diploma IT (Software Development)", "Coding bootcamp + portfolio"]
+  },
+  {
+    "occupation_code": "252902",
+    "title": "Data Scientist",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Analyses complex datasets using statistical methods, machine learning and programming to extract business insights and drive decisions.",
+    "tasks": ["Build and train machine learning models", "Clean and analyse large datasets", "Create data visualisations and dashboards", "Present findings to stakeholders", "Develop AI-powered solutions"],
+    "learning_pathways": ["BSc Data Science", "BSc Computer Science + postgrad", "BCom with Data Analytics specialisation", "Online certifications (Coursera, DataCamp)"]
+  },
+  {
+    "occupation_code": "252901",
+    "title": "ICT Security Specialist",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Protects computer systems, networks and data from cyber threats, attacks and unauthorised access.",
+    "tasks": ["Monitor networks for security breaches", "Conduct penetration testing and vulnerability assessments", "Implement firewalls and encryption", "Respond to cybersecurity incidents", "Train staff on security best practices"],
+    "learning_pathways": ["BSc Cybersecurity", "BSc Computer Science + certifications", "CompTIA Security+", "Certified Ethical Hacker (CEH)"]
+  },
+  {
+    "occupation_code": "214201",
+    "title": "Civil Engineer",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Plans, designs and oversees construction and maintenance of infrastructure such as roads, bridges, dams and buildings.",
+    "tasks": ["Design infrastructure projects and structures", "Manage construction sites and contractors", "Ensure compliance with building codes", "Conduct structural and soil analysis", "Prepare cost estimates and project reports"],
+    "learning_pathways": ["BSc Engineering (Civil)", "BEng Civil Engineering", "National Diploma Civil Engineering", "Professional Engineer registration with ECSA"]
+  },
+  {
+    "occupation_code": "215101",
+    "title": "Electrical Engineer",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Designs, develops and maintains electrical systems and equipment for residential, commercial and industrial use.",
+    "tasks": ["Design electrical systems and circuits", "Oversee installation of electrical equipment", "Test and troubleshoot electrical systems", "Ensure compliance with safety standards", "Manage electrical projects and budgets"],
+    "learning_pathways": ["BSc Engineering (Electrical)", "BEng Electrical Engineering", "National Diploma Electrical Engineering", "Professional Engineer registration with ECSA"]
+  },
+  {
+    "occupation_code": "222101",
+    "title": "Professional Nurse",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Provides comprehensive nursing care to patients in hospitals, clinics and community health settings.",
+    "tasks": ["Assess patient health needs and vital signs", "Administer medication and treatments", "Educate patients and families on health management", "Coordinate care with medical teams", "Maintain accurate patient records"],
+    "learning_pathways": ["Bachelor of Nursing (4-year)", "Diploma in Nursing (4-year at TVET)", "Bridging course for Enrolled Nurses", "Registration with South African Nursing Council (SANC)"]
+  },
+  {
+    "occupation_code": "221101",
+    "title": "General Medical Practitioner",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Diagnoses and treats a wide range of medical conditions, providing primary healthcare to patients of all ages.",
+    "tasks": ["Diagnose illnesses and medical conditions", "Prescribe medication and treatment plans", "Refer patients to specialists when needed", "Conduct routine health screenings", "Maintain patient medical records"],
+    "learning_pathways": ["MBChB (6-year degree)", "Internship (2 years)", "Community service (1 year)", "Registration with Health Professions Council of SA (HPCSA)"]
+  },
+  {
+    "occupation_code": "241101",
+    "title": "Accountant (General)",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Plans and provides accounting services including financial reporting, auditing, tax compliance and budget management.",
+    "tasks": ["Prepare financial statements and reports", "Manage budgets and cash flow", "Conduct internal and external audits", "Ensure tax compliance and submissions", "Provide financial advice to management"],
+    "learning_pathways": ["BCom Accounting", "BCom Honours (CTA)", "SAICA Articles (3 years)", "Chartered Accountant (CA) qualification"]
+  },
+  {
+    "occupation_code": "661101",
+    "title": "Electrician",
+    "major_group": "Skilled Trades",
+    "is_high_demand": true,
+    "is_trade": true,
+    "is_green_career": false,
+    "description": "Installs, maintains and repairs electrical wiring, equipment and systems in residential, commercial and industrial settings.",
+    "tasks": ["Install electrical wiring and systems", "Read and interpret technical diagrams", "Test electrical components and circuits", "Diagnose and repair electrical faults", "Ensure compliance with electrical safety codes"],
+    "learning_pathways": ["N1-N3 at TVET College", "Electrical Trade Test (Red Seal)", "Apprenticeship (3-4 years)", "Registration with Department of Labour"]
+  },
+  {
+    "occupation_code": "642601",
+    "title": "Plumber",
+    "major_group": "Skilled Trades",
+    "is_high_demand": true,
+    "is_trade": true,
+    "is_green_career": false,
+    "description": "Installs, repairs and maintains piping systems for water, gas and waste in buildings and industrial facilities.",
+    "tasks": ["Install and repair water and waste pipe systems", "Read plumbing blueprints and plans", "Test pipes for leaks and pressure", "Install fixtures such as taps and geysers", "Ensure compliance with plumbing regulations"],
+    "learning_pathways": ["N1-N3 at TVET College", "Plumbing Trade Test (Red Seal)", "Apprenticeship (3-4 years)", "Registration with Institute of Plumbing SA (IOPSA)"]
+  },
+  {
+    "occupation_code": "641101",
+    "title": "Bricklayer",
+    "major_group": "Skilled Trades",
+    "is_high_demand": true,
+    "is_trade": true,
+    "is_green_career": false,
+    "description": "Lays bricks, concrete blocks and other materials to construct walls, partitions, arches and other structures.",
+    "tasks": ["Read and interpret building plans", "Mix and apply mortar", "Lay bricks and blocks to specifications", "Ensure structures are level and plumb", "Repair and restore existing brickwork"],
+    "learning_pathways": ["N1-N3 Bricklaying at TVET College", "Bricklayer Trade Test (Red Seal)", "Apprenticeship (3-4 years)"]
+  },
+  {
+    "occupation_code": "671101",
+    "title": "Automotive Motor Mechanic",
+    "major_group": "Skilled Trades",
+    "is_high_demand": true,
+    "is_trade": true,
+    "is_green_career": false,
+    "description": "Diagnoses, repairs and maintains petrol and diesel engines and mechanical systems in motor vehicles.",
+    "tasks": ["Diagnose engine and mechanical faults", "Service and maintain vehicles", "Replace worn or damaged parts", "Use diagnostic computer equipment", "Road test vehicles after repairs"],
+    "learning_pathways": ["N1-N3 Motor Mechanics at TVET College", "Motor Mechanic Trade Test (Red Seal)", "Apprenticeship (3-4 years)", "Manufacturer-specific training (Toyota, BMW, etc.)"]
+  },
+  {
+    "occupation_code": "263401",
+    "title": "Psychologist",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Assesses and treats mental, emotional and behavioural disorders using therapeutic techniques and psychological testing.",
+    "tasks": ["Conduct psychological assessments and tests", "Provide individual and group therapy", "Diagnose mental health conditions", "Develop treatment plans", "Collaborate with medical and social work teams"],
+    "learning_pathways": ["BA/BSc Psychology", "Honours in Psychology", "Masters in Clinical/Counselling Psychology", "Internship + registration with HPCSA"]
+  },
+  {
+    "occupation_code": "263501",
+    "title": "Social Worker",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Helps individuals, families and communities address social problems and improve their wellbeing and quality of life.",
+    "tasks": ["Assess client needs and circumstances", "Develop and implement care plans", "Connect clients to community resources", "Advocate for vulnerable individuals", "Maintain case files and reports"],
+    "learning_pathways": ["Bachelor of Social Work (4-year)", "Registration with South African Council for Social Service Professions (SACSSP)"]
+  },
+  {
+    "occupation_code": "232101",
+    "title": "Secondary School Teacher",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Educates learners in grades 8-12 in specific subject areas, preparing them for the National Senior Certificate (matric).",
+    "tasks": ["Plan and deliver lessons", "Set and mark assessments and exams", "Monitor learner progress and provide feedback", "Manage classroom behaviour", "Participate in school development activities"],
+    "learning_pathways": ["Bachelor of Education (BEd) - FET Phase", "PGCE (Postgraduate Certificate in Education)", "Registration with South African Council for Educators (SACE)"]
+  },
+  {
+    "occupation_code": "213301",
+    "title": "Environmental Scientist",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": true,
+    "description": "Studies the environment and assesses the impact of human activities, providing recommendations for environmental protection and sustainability.",
+    "tasks": ["Conduct environmental impact assessments (EIAs)", "Collect and analyse environmental samples", "Monitor pollution levels and ecosystems", "Develop environmental management plans", "Advise government and industry on compliance"],
+    "learning_pathways": ["BSc Environmental Science", "BSc Natural Sciences", "Honours in Environmental Science", "Registration with South African Council for Natural Scientific Professions (SACNASP)"]
+  },
+  {
+    "occupation_code": "121101",
+    "title": "Finance Manager",
+    "major_group": "Managers",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Oversees the financial health of an organisation, managing budgets, financial reporting, and strategic financial planning.",
+    "tasks": ["Prepare and analyse financial reports", "Manage organisational budgets", "Oversee accounts payable and receivable", "Ensure regulatory and tax compliance", "Advise executives on financial strategy"],
+    "learning_pathways": ["BCom Accounting or Finance", "BCom Honours (CTA)", "CA(SA) or CIMA qualification", "MBA (optional for senior roles)"]
+  },
+  {
+    "occupation_code": "226201",
+    "title": "Pharmacist",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Prepares and dispenses medications, advises patients and healthcare providers on safe and effective drug use.",
+    "tasks": ["Dispense prescription medications accurately", "Counsel patients on medication use and side effects", "Check for drug interactions", "Manage pharmacy stock and ordering", "Compound specialised medications"],
+    "learning_pathways": ["BPharm (4-year degree)", "Internship (1 year)", "Community service (1 year)", "Registration with South African Pharmacy Council (SAPC)"]
+  },
+  {
+    "occupation_code": "216101",
+    "title": "Architect",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Designs buildings and structures, balancing aesthetic appeal, functionality, safety and sustainability.",
+    "tasks": ["Design buildings using CAD software", "Prepare architectural drawings and specifications", "Obtain building approvals and permits", "Oversee construction to ensure design compliance", "Coordinate with engineers and contractors"],
+    "learning_pathways": ["Bachelor of Architecture (3-year)", "Master of Architecture (2-year professional degree)", "Internship (2 years)", "Registration with South African Council for the Architectural Profession (SACAP)"]
+  },
+  {
+    "occupation_code": "261101",
+    "title": "Lawyer",
+    "major_group": "Professionals",
+    "is_high_demand": true,
+    "is_trade": false,
+    "is_green_career": false,
+    "description": "Provides legal advice and representation to individuals, businesses and organisations in civil and criminal matters.",
+    "tasks": ["Research and analyse legal issues", "Draft legal documents and contracts", "Represent clients in court", "Advise clients on their legal rights", "Negotiate settlements and agreements"],
+    "learning_pathways": ["LLB (4-year degree or graduate entry)", "Practical Legal Training (PLT)", "Admission as Attorney or Advocate", "Registration with Legal Practice Council (LPC)"]
+  }
+]

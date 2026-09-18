@@ -1,0 +1,289 @@
+[
+  {
+    "title": "Doctor of Philosophy (PhD)",
+    "nqf_level": 10,
+    "type": "Doctoral Degree",
+    "duration": "3-5 years",
+    "field": "Various"
+  },
+  {
+    "title": "Master of Business Administration (MBA)",
+    "nqf_level": 9,
+    "type": "Masters Degree",
+    "duration": "1-2 years",
+    "field": "Business"
+  },
+  {
+    "title": "Master of Science (MSc)",
+    "nqf_level": 9,
+    "type": "Masters Degree",
+    "duration": "1-2 years",
+    "field": "Science"
+  },
+  {
+    "title": "Master of Engineering (MEng)",
+    "nqf_level": 9,
+    "type": "Masters Degree",
+    "duration": "1-2 years",
+    "field": "Engineering"
+  },
+  {
+    "title": "BCom Honours in Accounting (CTA)",
+    "nqf_level": 8,
+    "type": "Honours Degree",
+    "duration": "1 year",
+    "field": "Accounting"
+  },
+  {
+    "title": "BCom Honours in Information Systems",
+    "nqf_level": 8,
+    "type": "Honours Degree",
+    "duration": "1 year",
+    "field": "IT"
+  },
+  {
+    "title": "Postgraduate Diploma in Education (PGCE)",
+    "nqf_level": 8,
+    "type": "Postgrad Diploma",
+    "duration": "1 year",
+    "field": "Education"
+  },
+  {
+    "title": "Bachelor of Science in Computer Science",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "3 years",
+    "field": "IT"
+  },
+  {
+    "title": "Bachelor of Commerce (BCom)",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "3 years",
+    "field": "Business"
+  },
+  {
+    "title": "Bachelor of Engineering (BEng)",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "4 years",
+    "field": "Engineering"
+  },
+  {
+    "title": "Bachelor of Laws (LLB)",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "4 years",
+    "field": "Law"
+  },
+  {
+    "title": "Bachelor of Medicine and Surgery (MBChB)",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "6 years",
+    "field": "Medicine"
+  },
+  {
+    "title": "Bachelor of Nursing",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "4 years",
+    "field": "Health"
+  },
+  {
+    "title": "Bachelor of Education (BEd)",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "4 years",
+    "field": "Education"
+  },
+  {
+    "title": "Bachelor of Social Work",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "4 years",
+    "field": "Social Sciences"
+  },
+  {
+    "title": "Bachelor of Architecture",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "3 years",
+    "field": "Built Environment"
+  },
+  {
+    "title": "Bachelor of Pharmacy (BPharm)",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "4 years",
+    "field": "Health"
+  },
+  {
+    "title": "BSc Information Technology",
+    "nqf_level": 7,
+    "type": "Bachelors Degree",
+    "duration": "3 years",
+    "field": "IT"
+  },
+  {
+    "title": "National Diploma in Engineering (Civil)",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Engineering"
+  },
+  {
+    "title": "National Diploma in Engineering (Electrical)",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Engineering"
+  },
+  {
+    "title": "National Diploma in Engineering (Mechanical)",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Engineering"
+  },
+  {
+    "title": "National Diploma in IT (Software Development)",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "IT"
+  },
+  {
+    "title": "National Diploma in Accounting",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Business"
+  },
+  {
+    "title": "Diploma in Nursing",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Health"
+  },
+  {
+    "title": "National Diploma in Agriculture",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Agriculture"
+  },
+  {
+    "title": "National Diploma in Hospitality Management",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Hospitality"
+  },
+  {
+    "title": "National Diploma in Tourism Management",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Tourism"
+  },
+  {
+    "title": "National Diploma in Marketing",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Business"
+  },
+  {
+    "title": "National Diploma in Human Resource Management",
+    "nqf_level": 6,
+    "type": "Diploma",
+    "duration": "3 years",
+    "field": "Business"
+  },
+  {
+    "title": "Higher Certificate in IT",
+    "nqf_level": 5,
+    "type": "Higher Certificate",
+    "duration": "1 year",
+    "field": "IT"
+  },
+  {
+    "title": "Higher Certificate in Business Administration",
+    "nqf_level": 5,
+    "type": "Higher Certificate",
+    "duration": "1 year",
+    "field": "Business"
+  },
+  {
+    "title": "National Senior Certificate (NSC / Matric)",
+    "nqf_level": 4,
+    "type": "School Certificate",
+    "duration": "1 year (Grade 12)",
+    "field": "General"
+  },
+  {
+    "title": "National Certificate (Vocational) NCV Level 4",
+    "nqf_level": 4,
+    "type": "Vocational Certificate",
+    "duration": "3 years (at TVET)",
+    "field": "Various"
+  },
+  {
+    "title": "N3 Certificate — Electrical Engineering",
+    "nqf_level": 4,
+    "type": "NATED Certificate",
+    "duration": "Trimester-based",
+    "field": "Engineering"
+  },
+  {
+    "title": "N3 Certificate — Mechanical Engineering",
+    "nqf_level": 4,
+    "type": "NATED Certificate",
+    "duration": "Trimester-based",
+    "field": "Engineering"
+  },
+  {
+    "title": "Occupational Certificate: Electrician",
+    "nqf_level": 4,
+    "type": "Trade Certificate",
+    "duration": "3-4 years apprenticeship",
+    "field": "Trades"
+  },
+  {
+    "title": "Occupational Certificate: Plumber",
+    "nqf_level": 4,
+    "type": "Trade Certificate",
+    "duration": "3-4 years apprenticeship",
+    "field": "Trades"
+  },
+  {
+    "title": "Occupational Certificate: Welder",
+    "nqf_level": 4,
+    "type": "Trade Certificate",
+    "duration": "3-4 years apprenticeship",
+    "field": "Trades"
+  },
+  {
+    "title": "Occupational Certificate: Automotive Motor Mechanic",
+    "nqf_level": 4,
+    "type": "Trade Certificate",
+    "duration": "3-4 years apprenticeship",
+    "field": "Trades"
+  },
+  {
+    "title": "Occupational Certificate: Carpenter",
+    "nqf_level": 4,
+    "type": "Trade Certificate",
+    "duration": "3-4 years apprenticeship",
+    "field": "Trades"
+  },
+  {
+    "title": "Occupational Certificate: Bricklayer",
+    "nqf_level": 4,
+    "type": "Trade Certificate",
+    "duration": "3-4 years apprenticeship",
+    "field": "Trades"
+  }
+]

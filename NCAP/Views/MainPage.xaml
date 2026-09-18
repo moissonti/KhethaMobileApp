@@ -7,80 +7,88 @@
 
     <Grid RowDefinitions="260,*,Auto">
 
-        <!-- CAROUSEL -->
+        <!-- ═══════════════════════════════════════ -->
+        <!-- CAROUSEL (flush to top, no logos)       -->
+        <!-- ═══════════════════════════════════════ -->
         <Grid x:Name="CarouselContainer" Grid.Row="0" HeightRequest="260" ZIndex="10">
 
             <Image x:Name="SlideImage" Aspect="AspectFill" HeightRequest="260"
-                   VerticalOptions="Fill" HorizontalOptions="Fill" />
+                   VerticalOptions="Fill" HorizontalOptions="Fill"/>
 
-            <!-- Bottom gradient -->
+            <!-- Bottom gradient only -->
             <BoxView VerticalOptions="Fill" HorizontalOptions="Fill">
                 <BoxView.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#00000000" Offset="0.0" />
-                        <GradientStop Color="#DD000000" Offset="1.0" />
+                        <GradientStop Color="#00000000" Offset="0.0"/>
+                        <GradientStop Color="#CC000000" Offset="1.0"/>
                     </LinearGradientBrush>
                 </BoxView.Background>
             </BoxView>
 
-            <!-- Top scrim for logos -->
-            <BoxView VerticalOptions="Start" HeightRequest="80" HorizontalOptions="Fill">
-                <BoxView.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#99000000" Offset="0.0" />
-                        <GradientStop Color="#00000000" Offset="1.0" />
-                    </LinearGradientBrush>
-                </BoxView.Background>
-            </BoxView>
+            <!-- Slide badge text -->
+            <Label x:Name="SlideBadgeLabel"
+                   VerticalOptions="End" HorizontalOptions="Start"
+                   Margin="20,0,20,44"
+                   FontSize="22" FontAttributes="Bold"
+                   TextColor="White" CharacterSpacing="1.2"/>
 
-            <!-- Logos -->
-            <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Start"
-                       Margin="16,44,0,0" Spacing="12">
-                <Image Source="dhet_logo.png"
-           HeightRequest="36"
-           WidthRequest="100"
-           Aspect="AspectFit" />
-                <BoxView WidthRequest="1" HeightRequest="30"
-             Color="#66FFFFFF" VerticalOptions="Center" />
-                <Image Source="khetha_logo.png"
-           HeightRequest="36"
-           WidthRequest="80"
-           Aspect="AspectFit" />
-            </HorizontalStackLayout>
+            <!-- Slide subtitle -->
+            <Label x:Name="SlideSubtitleLabel"
+                   VerticalOptions="End" HorizontalOptions="Start"
+                   Margin="20,0,20,24"
+                   FontSize="13" TextColor="#CCFFFFFF"/>
 
-            <Label x:Name="SlideBadgeLabel" VerticalOptions="End" HorizontalOptions="Start"
-                   Margin="20,0,20,44" FontSize="22" FontAttributes="Bold"
-                   TextColor="White" CharacterSpacing="1.2" />
-
-            <Label x:Name="SlideSubtitleLabel" VerticalOptions="End" HorizontalOptions="Start"
-                   Margin="20,0,20,24" FontSize="13" TextColor="#CCFFFFFF" />
-
-            <HorizontalStackLayout x:Name="DotsContainer" HorizontalOptions="Center"
-                                   VerticalOptions="End" Margin="0,0,0,8" Spacing="6" />
+            <!-- Dots -->
+            <HorizontalStackLayout x:Name="DotsContainer"
+                                   HorizontalOptions="Center" VerticalOptions="End"
+                                   Margin="0,0,0,8" Spacing="6"/>
         </Grid>
 
-        <!-- SCROLLABLE CONTENT -->
+        <!-- ═══════════════════════════════════════ -->
+        <!-- SCROLLABLE CONTENT                      -->
+        <!-- ═══════════════════════════════════════ -->
         <ScrollView Grid.Row="1" BackgroundColor="#F5F7F5">
             <VerticalStackLayout Spacing="0" Padding="0,0,0,20">
 
-                <!-- Tagline strip -->
-                <VerticalStackLayout BackgroundColor="White" Padding="20,16,20,16" Spacing="2">
-                    <Label Text="Your Career Guidance Companion, On the Go"
+                <!-- LOGOS + TAGLINE STRIP (below carousel) -->
+                <VerticalStackLayout BackgroundColor="White"
+                                     Padding="20,18,20,18" Spacing="12">
+
+                    <!-- Logos -->
+                    <HorizontalStackLayout HorizontalOptions="Center"
+                                           Spacing="16" VerticalOptions="Center">
+                        <Image Source="dhet_logo.png"
+                               HeightRequest="34" Aspect="AspectFit"/>
+                        <BoxView WidthRequest="1" HeightRequest="30"
+                                 Color="#E0E0E0" VerticalOptions="Center"/>
+                        <Image Source="khetha_logo.png"
+                               HeightRequest="34" Aspect="AspectFit"/>
+                    </HorizontalStackLayout>
+
+                    <!-- Tagline -->
+                    <Label x:Name="TaglineLabel"
+                           Text="Your Career Guidance Companion, On the Go"
                            FontSize="16" FontAttributes="Bold" TextColor="#1A3C2E"
-                           HorizontalOptions="Center" HorizontalTextAlignment="Center" />
-                    <Label Text="Free · Trusted · For Every South African"
+                           HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="TaglineSubLabel"
+                           Text="Free · Trusted · For Every South African"
                            FontSize="11" TextColor="#4CAF93"
-                           HorizontalOptions="Center" Margin="0,2,0,0" />
+                           HorizontalOptions="Center"/>
+
                 </VerticalStackLayout>
 
-                <Label Text="WHAT YOU CAN DO" FontSize="11" FontAttributes="Bold"
-                       TextColor="#999999" CharacterSpacing="1.5" Margin="16,16,16,10" />
+                <!-- Section label -->
+                <Label x:Name="SectionLabel"
+                       Text="WHAT YOU CAN DO"
+                       FontSize="11" FontAttributes="Bold"
+                       TextColor="#999999" CharacterSpacing="1.5"
+                       Margin="16,16,16,10"/>
 
-                <!-- 2-COLUMN GRID -->
+                <!-- 2-COLUMN FEATURE GRID -->
                 <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto"
                       ColumnSpacing="10" RowSpacing="10" Margin="16,0,16,0">
 
-                    <!-- Card 1: Career Choice Quiz -->
+                    <!-- Card 1 -->
                     <Border Grid.Row="0" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14"/>
@@ -94,19 +102,19 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="12"/>
                                 </Border.StrokeShape>
-                                <Label Text="&#xE8F8;" FontFamily="MaterialOutlined"
-                                       FontSize="24" TextColor="#1A3C2E"
-                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="&#xE8F8;" FontFamily="MaterialOutlined" FontSize="24"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
-                            <Label Text="Career Choice Quiz" FontSize="13" FontAttributes="Bold"
-                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
-                            <Label Text="Personalised career suggestions" FontSize="11"
-                                   TextColor="#888888" LineBreakMode="WordWrap"/>
-                            <Label Text="Start →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label x:Name="Card1Title" Text="Career Choice Quiz"
+                                   FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card1Sub" Text="Personalised career suggestions"
+                                   FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card1Action" Text="Start →"
+                                   FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
                         </VerticalStackLayout>
                     </Border>
 
-                    <!-- Card 2: Subject Chooser -->
+                    <!-- Card 2 -->
                     <Border Grid.Row="0" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14"/>
@@ -120,19 +128,19 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="12"/>
                                 </Border.StrokeShape>
-                                <Label Text="&#xE865;" FontFamily="MaterialOutlined"
-                                       FontSize="24" TextColor="#1A3C2E"
-                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="&#xE865;" FontFamily="MaterialOutlined" FontSize="24"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
-                            <Label Text="Subject Chooser" FontSize="13" FontAttributes="Bold"
-                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
-                            <Label Text="Right subjects for your stream" FontSize="11"
-                                   TextColor="#888888" LineBreakMode="WordWrap"/>
-                            <Label Text="Start →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label x:Name="Card2Title" Text="Subject Chooser"
+                                   FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card2Sub" Text="Right subjects for your stream"
+                                   FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card2Action" Text="Start →"
+                                   FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
                         </VerticalStackLayout>
                     </Border>
 
-                    <!-- Card 3: Job Fit Assessment -->
+                    <!-- Card 3 -->
                     <Border Grid.Row="1" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14"/>
@@ -146,19 +154,19 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="12"/>
                                 </Border.StrokeShape>
-                                <Label Text="&#xEA4A;" FontFamily="MaterialOutlined"
-                                       FontSize="24" TextColor="#1A3C2E"
-                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="&#xEA4A;" FontFamily="MaterialOutlined" FontSize="24"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
-                            <Label Text="Job Fit Assessment" FontSize="13" FontAttributes="Bold"
-                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
-                            <Label Text="Find roles that suit your personality" FontSize="11"
-                                   TextColor="#888888" LineBreakMode="WordWrap"/>
-                            <Label Text="Start →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label x:Name="Card3Title" Text="Job Fit Assessment"
+                                   FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card3Sub" Text="Find roles that suit your personality"
+                                   FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card3Action" Text="Start →"
+                                   FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
                         </VerticalStackLayout>
                     </Border>
 
-                    <!-- Card 4: Study Directories -->
+                    <!-- Card 4 -->
                     <Border Grid.Row="1" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14"/>
@@ -172,19 +180,19 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="12"/>
                                 </Border.StrokeShape>
-                                <Label Text="&#xE80C;" FontFamily="MaterialOutlined"
-                                       FontSize="24" TextColor="#1A3C2E"
-                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="&#xE80C;" FontFamily="MaterialOutlined" FontSize="24"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
-                            <Label Text="Study Directories" FontSize="13" FontAttributes="Bold"
-                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
-                            <Label Text="Universities, TVETs &amp; qualifications" FontSize="11"
-                                   TextColor="#888888" LineBreakMode="WordWrap"/>
-                            <Label Text="Explore →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label x:Name="Card4Title" Text="Study Directories"
+                                   FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card4Sub" Text="Universities, TVETs &amp; qualifications"
+                                   FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card4Action" Text="Explore →"
+                                   FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
                         </VerticalStackLayout>
                     </Border>
 
-                    <!-- Card 5: Green & High-Demand -->
+                    <!-- Card 5 -->
                     <Border Grid.Row="2" Grid.Column="0" BackgroundColor="White" StrokeThickness="0" Padding="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14"/>
@@ -198,19 +206,19 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="12"/>
                                 </Border.StrokeShape>
-                                <Label Text="&#xE8E5;" FontFamily="MaterialOutlined"
-                                       FontSize="24" TextColor="#1A3C2E"
-                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="&#xE8E5;" FontFamily="MaterialOutlined" FontSize="24"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
-                            <Label Text="Green &amp; High-Demand" FontSize="13" FontAttributes="Bold"
-                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
-                            <Label Text="Future-ready occupation insights" FontSize="11"
-                                   TextColor="#888888" LineBreakMode="WordWrap"/>
-                            <Label Text="View →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label x:Name="Card5Title" Text="Green &amp; High-Demand"
+                                   FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card5Sub" Text="Future-ready occupation insights"
+                                   FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card5Action" Text="View →"
+                                   FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
                         </VerticalStackLayout>
                     </Border>
 
-                    <!-- Card 6: Works Offline -->
+                    <!-- Card 6 -->
                     <Border Grid.Row="2" Grid.Column="1" BackgroundColor="White" StrokeThickness="0" Padding="0">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="14"/>
@@ -224,29 +232,33 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="12"/>
                                 </Border.StrokeShape>
-                                <Label Text="&#xE648;" FontFamily="MaterialOutlined"
-                                       FontSize="24" TextColor="#1A3C2E"
-                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="&#xE648;" FontFamily="MaterialOutlined" FontSize="24"
+                                       TextColor="#1A3C2E" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
-                            <Label Text="Works Offline" FontSize="13" FontAttributes="Bold"
-                                   TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
-                            <Label Text="Low-bandwidth &amp; rural friendly" FontSize="11"
-                                   TextColor="#888888" LineBreakMode="WordWrap"/>
-                            <Label Text="Learn more →" FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
+                            <Label x:Name="Card6Title" Text="Works Offline"
+                                   FontSize="13" FontAttributes="Bold" TextColor="#1A3C2E" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card6Sub" Text="Low-bandwidth &amp; rural friendly"
+                                   FontSize="11" TextColor="#888888" LineBreakMode="WordWrap"/>
+                            <Label x:Name="Card6Action" Text="Learn more →"
+                                   FontSize="12" FontAttributes="Bold" TextColor="#1A3C2E"/>
                         </VerticalStackLayout>
                     </Border>
 
                 </Grid>
 
-                <Label Text="A free service by the Department of Higher Education &amp; Training"
+                <!-- Footer -->
+                <Label x:Name="FooterLabel"
+                       Text="A free service by the Department of Higher Education &amp; Training"
                        FontSize="11" TextColor="#AAAAAA"
                        HorizontalOptions="Center" HorizontalTextAlignment="Center"
-                       Margin="24,20,24,0" />
+                       Margin="24,20,24,0"/>
 
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- BOTTOM BUTTONS -->
+        <!-- ═══════════════════════════════════════ -->
+        <!-- BOTTOM BUTTONS                          -->
+        <!-- ═══════════════════════════════════════ -->
         <Grid Grid.Row="2" ColumnDefinitions="*,*" BackgroundColor="White"
               Padding="16,12,16,28" ColumnSpacing="12">
             <Grid.Shadow>
@@ -260,7 +272,7 @@
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnRegisterTapped"/>
                 </Border.GestureRecognizers>
-                <Label Text="Register" FontSize="15" FontAttributes="Bold"
+                <Label x:Name="RegisterBtn" Text="Register" FontSize="15" FontAttributes="Bold"
                        TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
             </Border>
 
@@ -271,7 +283,7 @@
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnLoginTapped"/>
                 </Border.GestureRecognizers>
-                <Label Text="Log In" FontSize="15" FontAttributes="Bold"
+                <Label x:Name="LoginBtn" Text="Log In" FontSize="15" FontAttributes="Bold"
                        TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
             </Border>
 
